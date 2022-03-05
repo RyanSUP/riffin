@@ -3,7 +3,7 @@ import mongoose from "mongoose"
 const Schema = mongoose.Schema
 
 const collectionSchema = new Schema({
-    profile: {
+    owner: {
         type: Schema.Types.ObjectId, 
         ref: 'Profile',
     },

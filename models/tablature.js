@@ -3,17 +3,19 @@ import mongoose from "mongoose"
 const Schema = mongoose.Schema
 
 const tablatureSchema = new Schema({
-    profile: {
+    owner: {
         type: Schema.Types.ObjectId, 
         ref: 'Profile',
     },
+    name: {
+        type: String,
+        default: 'a tasty lick'
+    },
     notesOnStrings: [String],
-    collections: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Collections',
-        }
-    ]
+    public: { 
+        type: Boolean, 
+        default: false
+    },
 },  { timestamps: true })
 
 const Tablature = mongoose.model('Tablature', tablatureSchema)
