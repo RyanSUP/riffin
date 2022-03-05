@@ -2,15 +2,17 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
-    </div>
-  <% } %>
+  <input type="text" name="tab-name" class="tab-name-input" placeholder="lick title">
+  <!-- There are 240 available characters in this layout, but need to add an additional 5 to account for new line characters -->
+  <textarea name="tab-data" cols="40" rows="6" maxlength="245">
+e|--------------------------------------
+B|--------------------------------------
+G|--------------------------------------
+D|--------------------------------------
+A|--------------------------------------
+E|--------------------------------------</textarea>
+
+<!-- will eventually create this area with JS -->
 </main>
 
 <%- include('./partials/footer') %>
