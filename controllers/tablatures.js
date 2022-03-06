@@ -1,4 +1,6 @@
 import { Tablature } from '../models/tablature.js'
+import { Profile } from '../models/profile.js'
+
 import * as tabScripts from '../public/scripts/tab-scripts.js'
 
 const errorCallback = (error) => {
@@ -20,11 +22,11 @@ const index = (req, res) => {
 
 const newTablature = (req, res) => {
     res.render('tablatures/new', {
-        title: 'New Lick'
+        title: 'Sick, a New Lick!'
     })
 }
 
-const create = (req, res) => {
+const createTablature = (req, res) => {
     // Set the owner. User is added to req via middleware (passUserToView)
     req.body.owner = req.user.profile._id
     // Check if name is empty so I can make it null for default
@@ -33,11 +35,35 @@ const create = (req, res) => {
     req.body.public = !!req.body.public
     // Obviously going to need to do more cleaning at some point so I'm setting up a tabScripts file.
     req.body.notesOnStrings = tabScripts.arrayifyTextareaInput(req.body.notesOnStrings)
-    Tablature.create(req.body)
-    .then(tab => {
-        res.redirect('/')
+    // Push the tab into the users Profile.tabs array
+    const tab = new Tablature(req.body)
+    tab.save(err => {
+        // send back the stored tab so the user doesnt lose their lick if the save fails
+        if(err) return res.redirect('/tablatures/new', {workInProgress: req.body}) 
+        Profile.findById(tab.owner)
+        .then(profile => {
+            console.log(profile)
+            profile.tabs.push(tab)
+            profile.save(() => {
+                res.redirect('/')
+            })
+        })
     })
-    .catch(errorCallback)
+
+
+    // Profile.findById(req.body.owner)
+    // .then(profile => {
+    //     Tablature.create(req.body)
+    //     .then(tab => {
+    //         profile.tabs.push(tab._id)
+    //         profile.save()
+    //         .then(()=> {
+    //             // ! Dont forget to update this to /tablature/:id redirect
+    //             res.redirect('/')
+    //         })
+    //     })
+    // })
+    // .catch(errorCallback)
 }
 
 const show = (req, res) => {
@@ -46,7 +72,7 @@ const show = (req, res) => {
 
 export {
     index,
-    create,
+    createTablature as create,
     show,
     newTablature as new,
 }
