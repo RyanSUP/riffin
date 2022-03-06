@@ -1,5 +1,4 @@
 import { Tablature } from '../models/tablature.js'
-import { Profile } from '../models/profile.js'
 import * as tabScripts from '../public/scripts/tab-scripts.js'
 
 const errorCallback = (error) => {
@@ -8,19 +7,21 @@ const errorCallback = (error) => {
 }
 
 const index = (req, res) => {
-
-    // ! Ok - after much frustration and googling I realized to populate I need to use the property name, not the ref name...
     Tablature.find({public: true})
+    // ! Ok - after much frustration and googling I realized to populate I need to use the property name, not the ref name...
     .populate('owner')
     .exec((error, tabs) => {
-        console.log(tabs)
         res.render('tablatures/index', {
             title: 'Gallery',
             tabs,
         })
     })
+}
 
-
+const newTablature = (req, res) => {
+    res.render('tablatures/new', {
+        title: 'New Lick'
+    })
 }
 
 const create = (req, res) => {
@@ -47,4 +48,5 @@ export {
     index,
     create,
     show,
+    newTablature as new,
 }
