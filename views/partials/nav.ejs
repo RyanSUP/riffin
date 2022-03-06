@@ -4,29 +4,29 @@
     <% if (user) { %>
       <a href="/tablatures/trending" class ="brand">Lickwarden</a>
       <a href="/tablatures/new">
-        New
+        <span>New</span>
         <i class="fa-solid fa-pen-to-square"></i>
       </a>
       <a href="/profiles/<%= user.profile._id %>">
-        Licks
+        <span>Licks</span>
         <i class="fa-solid fa-music"></i>
       </a>
       <a href="/collections">
-        Collections
+        <span>Collections</span>
         <i class="fa-solid fa-bookmark"></i>
       </a>
       <a href="/tablatures/trending">
-        Trending
+        <span>Trending</span>
         <i class="fa-solid fa-arrow-trend-up"></i>
       </a>
       <a href="/auth/logout">
-        Sign out
+        <span>Sign out</span>
         <i class="fa-solid fa-arrow-right-from-bracket"></i>
       </a>
     <% } else { %>
       <a href="/auth/google">
+        Sign in with Google
         <i class="fa-brands fa-google"></i>
-        Sign in
       </a>
     <% } %>
   </nav>

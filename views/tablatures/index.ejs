@@ -7,17 +7,17 @@
     <% tabs.forEach(tab => { %>
         <!-- Gallery element will need to be a grid -->
         <div class="gallery-container">
-            <a href="/tablatures/<%= tab._id %>" class="tab-link gallery-element">
-                <h3><%= tab.name %></h3>
-                <p class="tab-text"><%= tab.notesOnStrings[0] %></p>
-                <p class="tab-text"><%= tab.notesOnStrings[1] %></p>
-                <p class="tab-text"><%= tab.notesOnStrings[2] %></p>
-                <p class="tab-text"><%= tab.notesOnStrings[3] %></p>
-                <p class="tab-text"><%= tab.notesOnStrings[4] %></p>
-                <p class="tab-text"><%= tab.notesOnStrings[5] %></p>
+            <a href="/tablatures/<%= tab._id %>" class="tab-link">
+                <h1><%= tab.name %></h1>
+                <%= tab.notesOnStrings[0] %><br>
+                <%= tab.notesOnStrings[1] %><br>
+                <%= tab.notesOnStrings[2] %><br>
+                <%= tab.notesOnStrings[3] %><br>
+                <%= tab.notesOnStrings[4] %><br>
+                <%= tab.notesOnStrings[5] %><br>
             </a>
             <a href="" class="tab-link">
-                A lick by <strong><%= tab.owner.name %></strong>
+                from <strong><%= tab.owner.name %></strong>
             </a>
         </div>
     <% }) %>
