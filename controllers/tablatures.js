@@ -66,7 +66,6 @@ const show = (req, res) => {
         } else {
             userAuth = 'user'
         }
-        console.log(req.user)
         res.render('tablatures/show', {
             title: tab.name,
             tab,
@@ -81,9 +80,30 @@ const show = (req, res) => {
     })
 }
 
+const update = (req, res) => {
+    Tablature.findById(req.params.id)
+    .then(tab => {
+        if(tab.owner.equals(req.user.profile._id)) {
+            tab.name = req.body.name
+            tab.notesOnStrings = tabScripts.arrayifyTextareaInput(req.body.notesOnStrings)
+            tab.save()
+            .then(() => {
+                res.redirect(`/tablatures/${req.params.id}`)
+            })
+        } else {
+            throw new Error('Not authorized')
+        }
+    })
+    .catch(error => {
+        console.log(error)
+        res.redirect(`/tablatures/${req.params.id}`)
+    })
+}
+
 export {
     index,
     createTablature as create,
     show,
     newTablature as new,
+    update,
 }

@@ -1,0 +1,15 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/gallery.css" />
+<%- include('../partials/nav') %>
+
+<main>
+    <form action="/collections" method="POST">
+        <input type="text">
+        <button type="submit">Save</button>
+    </form>
+    <% collections.forEach(collection => { %>
+        <a href=""><%= collection.name %></a>
+    <% }) %>
+</main>
+
+<%- include('../partials/footer') %>

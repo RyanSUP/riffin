@@ -14,6 +14,9 @@ router.get('/new', isLoggedIn, tablaturesCtrl.new)
 // POST - localhost3000/tablature
 router.post('/', isLoggedIn, tablaturesCtrl.create)
 
+// POST - localhost:3000/tablatures/:id
+router.post('/:id', isLoggedIn, tablaturesCtrl.update)
+
 // Get - localhost:3000/tablatures/:id
 router.get('/:id', tablaturesCtrl.show)
 
