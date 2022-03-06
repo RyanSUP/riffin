@@ -1,22 +1,32 @@
-  <% if (!user) { %>
-    <link rel="stylesheet" href="/stylesheets/siwg.css">
-  <% } %>
 </head>
 <body>
   <nav>
     <% if (user) { %>
-      <a href="/tablatures/new">New Lick</a>
-      <a href="/profiles/<%= user.profile._id %>">My Licks</a>
-      <a href="/collections">Collections</a>
-      <a href="/tablatures/trending">Trending</a>
+      <a href="/tablatures/trending" class ="brand">Lickwarden</a>
+      <a href="/tablatures/new">
+        New
+        <i class="fa-solid fa-pen-to-square"></i>
+      </a>
+      <a href="/profiles/<%= user.profile._id %>">
+        Licks
+        <i class="fa-solid fa-music"></i>
+      </a>
+      <a href="/collections">
+        Collections
+        <i class="fa-solid fa-bookmark"></i>
+      </a>
+      <a href="/tablatures/trending">
+        Trending
+        <i class="fa-solid fa-arrow-trend-up"></i>
+      </a>
       <a href="/auth/logout">
-        <button type="submit">Logout</button>
+        Sign out
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
       </a>
     <% } else { %>
-      <a href="/auth/google" class="siwg-link">
-        <button type="submit" class="siwg">
-          <img id="siwg-image" alt="Sign in with Google" />
-        </button>
+      <a href="/auth/google">
+        <i class="fa-brands fa-google"></i>
+        Sign in
       </a>
     <% } %>
   </nav>

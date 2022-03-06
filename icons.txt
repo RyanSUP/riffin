@@ -1,0 +1,34 @@
+Google
+<i class="fa-brands fa-google"></i>
+
+Bookmark
+<i class="fa-solid fa-bookmark"></i>
+
+Pen to square
+<i class="fa-solid fa-pen-to-square"></i>
+
+logout
+<i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+music
+<i class="fa-solid fa-music"></i>
+
+folder
+<i class="fa-regular fa-folder-open"></i>
+<i class="fa-solid fa-folder-open"></i>
+
+trending
+<i class="fa-solid fa-arrow-trend-up"></i>
+
+file
+<i class="fa-solid fa-file"></i>
+<i class="fa-regular fa-file"></i>
+
+trash
+<i class="fa-solid fa-trash-can"></i>
+
+flopppy disk
+<i class="fa-solid fa-floppy-disk"></i>
+
+add
+<i class="fa-solid fa-square-plus"></i>

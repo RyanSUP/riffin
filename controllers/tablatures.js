@@ -1,5 +1,6 @@
 import { Tablature } from '../models/tablature.js'
 import { Profile } from '../models/profile.js'
+import { Collection } from '../models/collection.js'
 
 import * as tabScripts from '../public/scripts/tab-scripts.js'
 
@@ -18,11 +19,7 @@ const index = (req, res) => {
 
 const newTablature = (req, res) => {
     res.render('tablatures/new', {
-        title: 'Sick, a New Lick!'
-    })
-    .catch(error => {
-        console.log(error)
-        res.redirect('tablatures/new')
+        title: 'Sick, a New Lick!',
     })
 }
 

@@ -3,10 +3,6 @@
 <%- include('../partials/nav') %>
 
 <main>
-    <form action="/collections" method="POST">
-        <input type="text">
-        <button type="submit">Save</button>
-    </form>
     <% collections.forEach(collection => { %>
         <a href=""><%= collection.name %></a>
     <% }) %>

@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
 }
 
 /* The Universal Selector */
@@ -38,15 +39,26 @@ nav {
   font-size: 1.6rem;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  padding: 20px
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.brand {
+  font-size: 2.4rem;
+  flex-grow: 1;
 }
 
 main {
-  height: 90%;
+  height: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
 }
 
 h1 {
