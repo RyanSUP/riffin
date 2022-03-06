@@ -1,9 +1,7 @@
 
 /* Gallery specific stuffs */
 main {
-  justify-content: space-around;
   flex-direction: row;
-  align-items: flex-start;
   flex-wrap: wrap;
 }
 
@@ -33,4 +31,3 @@ h1 {
   font-family: var(--tab-font-family);
   line-height: 0.3;
 }
-

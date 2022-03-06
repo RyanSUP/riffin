@@ -29,6 +29,7 @@ trash
 
 flopppy disk
 <i class="fa-solid fa-floppy-disk"></i>
+<i class="fa-regular fa-floppy-disk"></i>
 
 add
 <i class="fa-solid fa-square-plus"></i>

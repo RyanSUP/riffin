@@ -21,6 +21,8 @@ html {
   --nord3-color: #4C566A;
   --nord4-color: #D8DEE9;
   --nord6-color: #ECEFF4;
+  --aurora3-color: #EBCB8B;
+  --aurora4-color: #A3BE8C;
   --tab-font-family: 'Roboto Mono', monospace;
 
 }
@@ -80,6 +82,28 @@ textarea, .tab-name-input {
   resize: none;
 }
 
+textarea {
+  margin-bottom: 100px;
+}
+
+.save-btn-wrapper {
+  text-align: center;
+}
+
+.save-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--nord6-color);
+  cursor: pointer;
+  font-size: 3rem;
+  font-family: var(--tab-font-family);
+  font-weight: 100;
+}
+
+.save-btn:hover {
+  transition: color 0.5s ease;
+  color: var(--aurora4-color);
+}
 
 /* 
 Change placeholder color with a little help from my friends:
