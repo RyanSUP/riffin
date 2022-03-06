@@ -7,9 +7,7 @@ main {
   flex-wrap: wrap;
 }
 
-.gallery-element {
-  background-color: var(--nord1-color);
-  padding: 0 15px;
+.gallery-container {
 
 }
 
@@ -24,6 +22,12 @@ h3 {
   font-family: var(--tab-font-family);
   font-size: 1.8rem;
   font-weight: 400;
+}
+
+.tab-link {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
 }
 
 .tab-text {

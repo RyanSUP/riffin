@@ -1,0 +1,36 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <form 
+    class="tab-form" 
+    action="" 
+    method="POST" 
+    autocomplete="off"
+  >
+    <input 
+      type="text" 
+      name="name" 
+      class="tab-name-input" 
+      placeholder="<%= tab.name %>" 
+    >
+    <!-- There are 240 available characters in this layout, but need to add an additional 5 to account for new line characters -->
+    <!-- Text needs to be all janky like this so it renders properly. Can fix with a js script at some point -->
+    <textarea 
+    name="notesOnStrings" 
+    cols="40" 
+    rows="6" 
+    maxlength="245"
+    >
+<%= tab.notesOnStrings[0]%>
+<%= tab.notesOnStrings[1]%>
+<%= tab.notesOnStrings[2]%>
+<%= tab.notesOnStrings[3]%>
+<%= tab.notesOnStrings[4]%>
+<%= tab.notesOnStrings[5]%></textarea>
+    <button type="submit">save</button>
+  </form>
+
+</main>
+
+<%- include('../partials/footer') %>

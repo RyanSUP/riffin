@@ -54,7 +54,13 @@ const createTablature = (req, res) => {
 }
 
 const show = (req, res) => {
-
+    Tablature.findById(req.params.id)
+    .then(tab => {
+        res.render('tablatures/show', {
+            title: tab.name,
+            tab,
+        })
+    })
 }
 
 export {
