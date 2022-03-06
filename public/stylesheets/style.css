@@ -15,9 +15,12 @@ html {
 :root {
   font-size: 62.5%;
   --nord0-color: #2E3440;
+  --nord1-color: #3B4252;
+  --nord2-color: #434C5E;
   --nord3-color: #4C566A;
   --nord4-color: #D8DEE9;
   --nord6-color: #ECEFF4;
+  --tab-font-family: 'Roboto Mono', monospace;
 
 }
 
@@ -26,7 +29,6 @@ body {
   /* Use a system font, if none are available use an available sans-sarif font */
   margin: 0;
   height: 100vh;
-
   /* Will need to remove this on some pages so users can scroll!! */
   /* overflow: hidden; */
 }

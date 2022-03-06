@@ -1,12 +1,25 @@
 import { Tablature } from '../models/tablature.js'
+import { Profile } from '../models/profile.js'
 import * as tabScripts from '../public/scripts/tab-scripts.js'
 
 const errorCallback = (error) => {
     console.log(error)
-    res.redirect('/')
+    res.redirect('/tablatures')
 }
 
 const index = (req, res) => {
+
+    // ! Ok - after much frustration and googling I realized to populate I need to use the property name, not the ref name...
+    Tablature.find({public: true})
+    .populate('owner')
+    .exec((error, tabs) => {
+        console.log(tabs)
+        res.render('tablatures/index', {
+            title: 'Gallery',
+            tabs,
+        })
+    })
+
 
 }
 
@@ -26,7 +39,12 @@ const create = (req, res) => {
     .catch(errorCallback)
 }
 
+const show = (req, res) => {
+
+}
+
 export {
     index,
     create,
+    show,
 }
