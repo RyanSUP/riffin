@@ -3,10 +3,6 @@ import { Profile } from '../models/profile.js'
 
 import * as tabScripts from '../public/scripts/tab-scripts.js'
 
-const errorCallback = (error) => {
-    console.log(error)
-    res.redirect('/tablatures')
-}
 
 const index = (req, res) => {
     Tablature.find({public: true})
@@ -23,6 +19,10 @@ const index = (req, res) => {
 const newTablature = (req, res) => {
     res.render('tablatures/new', {
         title: 'Sick, a New Lick!'
+    })
+    .catch(error => {
+        console.log(error)
+        res.redirect('tablatures/new')
     })
 }
 
@@ -48,18 +48,36 @@ const createTablature = (req, res) => {
         })
     })
     .catch(error => {
+        console.log(error)
         // send back the stored tab so the user doesnt lose their lick if the save fails
         res.redirect('/tablatures/new', {workInProgress: req.body})
     })
 }
 
 const show = (req, res) => {
+
     Tablature.findById(req.params.id)
     .then(tab => {
+        let userAuth
+        if(req.user === undefined) {
+            userAuth = 'guest'
+        } else if(tab.owner.equals(req.user.profile._id)) {
+            userAuth = 'owner'
+        } else {
+            userAuth = 'user'
+        }
+        console.log(req.user)
         res.render('tablatures/show', {
             title: tab.name,
             tab,
+            userAuth,
         })
+    })
+    .catch(error => {
+        console.log(error)
+        isSelf ? 
+        res.redirect(`/profile/${req.user.profile._id}`) : 
+        res.redirect('/tablatures/trending')
     })
 }
 
