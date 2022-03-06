@@ -1,0 +1,22 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/gallery.css" />
+<%- include('../partials/nav') %>
+
+<main>
+    <!-- Show all tabs wrapped around a div -->
+    <% tabs.forEach(tab => { %>
+        <div class="gallery-element">
+            <div>
+                <h3><%= tab.name %></h3>
+            </div>
+            <p class="tab-text"><%= tab.notesOnStrings[0] %></p>
+            <p class="tab-text"><%= tab.notesOnStrings[1] %></p>
+            <p class="tab-text"><%= tab.notesOnStrings[2] %></p>
+            <p class="tab-text"><%= tab.notesOnStrings[3] %></p>
+            <p class="tab-text"><%= tab.notesOnStrings[4] %></p>
+            <p class="tab-text"><%= tab.notesOnStrings[5] %></p>
+        </div>
+    <% }) %>
+</main>
+
+<%- include('../partials/footer') %>

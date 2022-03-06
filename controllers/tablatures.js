@@ -37,33 +37,20 @@ const createTablature = (req, res) => {
     req.body.notesOnStrings = tabScripts.arrayifyTextareaInput(req.body.notesOnStrings)
     // Push the tab into the users Profile.tabs array
     const tab = new Tablature(req.body)
-    tab.save(err => {
-        // send back the stored tab so the user doesnt lose their lick if the save fails
-        if(err) return res.redirect('/tablatures/new', {workInProgress: req.body}) 
+    tab.save()
+    .then(()=> {
         Profile.findById(tab.owner)
         .then(profile => {
-            console.log(profile)
             profile.tabs.push(tab)
             profile.save(() => {
                 res.redirect('/')
             })
         })
     })
-
-
-    // Profile.findById(req.body.owner)
-    // .then(profile => {
-    //     Tablature.create(req.body)
-    //     .then(tab => {
-    //         profile.tabs.push(tab._id)
-    //         profile.save()
-    //         .then(()=> {
-    //             // ! Dont forget to update this to /tablature/:id redirect
-    //             res.redirect('/')
-    //         })
-    //     })
-    // })
-    // .catch(errorCallback)
+    .catch(error => {
+        // send back the stored tab so the user doesnt lose their lick if the save fails
+        res.redirect('/tablatures/new', {workInProgress: req.body})
+    })
 }
 
 const show = (req, res) => {
