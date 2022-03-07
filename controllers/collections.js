@@ -2,7 +2,9 @@ import { Collection } from '../models/collection.js'
 
 const index = (req, res) => {
     Collection.find({owner: req.user.profile._id})
-    .then(collections => {
+    .populate('tabs')
+    .then((collections) => {
+        console.log('colect', collections)
         res.render('collections/index', {
             title: 'My collections',
             collections,

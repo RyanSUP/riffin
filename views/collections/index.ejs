@@ -1,10 +1,35 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/gallery.css" />
+<link rel="stylesheet" href="/stylesheets/collections.css" />
 <%- include('../partials/nav') %>
 
 <main>
+    <div>
+        <!-- collection name -->
+        <!-- top 4 tab names -->
+        <!-- If it goes more than  4, 5th element will be ... -->
+        <!-- User can click ... or collection name to view all tabs in that collection -->
+        <!-- user can click any tab to be redirected to that tab -->
+    </div>
     <% collections.forEach(collection => { %>
-        <a href=""><%= collection.name %></a>
+        <div class="collection">
+            <h1><%= collection.name %></h1>
+            <div class="tabs">
+                <% collection.tabs.forEach(tab => { %>
+                    <div class="gallery-container">
+                        <a href="/tablatures/<%= tab._id %>" class="tab-link">
+                            <h2><%= tab.name %></h2>
+                            <%= tab.notesOnStrings[0] %><br>
+                            <%= tab.notesOnStrings[1] %><br>
+                            <%= tab.notesOnStrings[2] %><br>
+                            <%= tab.notesOnStrings[3] %><br>
+                            <%= tab.notesOnStrings[4] %><br>
+                            <%= tab.notesOnStrings[5] %><br>
+                        </a>
+                    </div>
+                <% }) %>
+            </div>
+            <a class="collection-link" href="">view entire collection</a>
+        </div>
     <% }) %>
 </main>
 
