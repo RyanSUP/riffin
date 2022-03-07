@@ -20,6 +20,9 @@ router.post('/:id', isLoggedIn, tablaturesCtrl.update)
 // Get - localhost:3000/tablatures/:id
 router.get('/:id', tablaturesCtrl.show)
 
+// DELETE - localhost:3000/tablatures/id
+router.delete('/:id', tablaturesCtrl.delete)
+
 export {
     router
 }

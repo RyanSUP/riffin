@@ -1,25 +1,27 @@
-  <form class="tab-form" action="/tablatures/<%= tab.id %> " method="POST" autocomplete="off">
-    <div class="wrapper">
-      <input type="text" name="name" class="tab-name-input" placeholder="a tasty lick" value="<%= tab.name %>" >
-      <label class="switch">
-        <input type="checkbox" name="public" value="<%= tab.public %>">
-        <span class="slider round"></span>
-      </label>
-    </div>
-    <!-- There are 240 available characters in this layout, but need to add an additional 5 to account for new line characters -->
-    <textarea name="notesOnStrings" cols="40" rows="6" maxlength="245">
+<form class="tab-form" action="/tablatures/<%= tab.id %> " method="POST" autocomplete="off">
+  <div class="wrapper">
+    <input type="text" name="name" class="tab-name-input" placeholder="a tasty lick" value="<%= tab.name %>" >
+    <label class="switch">
+      <input type="checkbox" name="public" value="<%= tab.public %>">
+      <span class="slider round"></span>
+    </label>
+  </div>
+  <!-- There are 240 available characters in this layout, but need to add an additional 5 to account for new line characters -->
+  <textarea name="notesOnStrings" cols="40" rows="6" maxlength="245">
 <%= tab.notesOnStrings[0]%>
 <%= tab.notesOnStrings[1]%>
 <%= tab.notesOnStrings[2]%>
 <%= tab.notesOnStrings[3]%>
 <%= tab.notesOnStrings[4]%>
 <%= tab.notesOnStrings[5]%></textarea>
-      <div class="save-btn-wrapper">
-        <button type="submit" class="save-btn">
-          SAVE
-        </button>
-        <a href="">
-          <i class="fa-regular fa-trash-can"></i>
-        </a>        
-      </div>
-  </form>
+  <div class="save-btn-wrapper">
+    <button type="submit" class="btn save-btn">
+      SAVE
+    </button>  
+  </div>
+</form>
+<form class="delete-form" action="/tablatures/<%= tab.id %>?_method=DELETE" method="POST">
+  <button type="submit" class="btn">
+    <i class="fa-regular fa-trash-can"></i>
+  </button>  
+</form>

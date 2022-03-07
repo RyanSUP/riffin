@@ -99,10 +99,28 @@ const update = (req, res) => {
     })
 }
 
+// ! At some point I'll need to make sure tabs are removed from collections too
+const deleteTab = (req, res) => {
+    Tablature.findById(req.params.id)
+    .then(tab => {
+        if(tab.owner.equals(req.user.profile._id)) {
+            tab.delete()
+            .then(()=> {
+                res.redirect(`/profiles/${req.user.profile._id}`)
+            })
+        }
+    })
+    .catch(error => {
+        console.log(error)
+        res.redirect(`/profiles/${req.user.profile._id}`)
+    })
+}
+
 export {
     index,
     createTablature as create,
     show,
     newTablature as new,
     update,
+    deleteTab as delete,
 }
