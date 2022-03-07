@@ -26,6 +26,7 @@ file
 
 trash
 <i class="fa-solid fa-trash-can"></i>
+<i class="fa-regular fa-trash-can"></i>
 
 flopppy disk
 <i class="fa-solid fa-floppy-disk"></i>

@@ -21,6 +21,7 @@ html {
   --nord3-color: #4C566A;
   --nord4-color: #D8DEE9;
   --nord6-color: #ECEFF4;
+  --aurora0-color: #BF616A;
   --aurora3-color: #EBCB8B;
   --aurora4-color: #A3BE8C;
   --tab-font-family: 'Roboto Mono', monospace;
@@ -61,6 +62,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 h1 {
@@ -88,18 +90,21 @@ textarea, .tab-name-input {
 }
 
 textarea {
-  margin-bottom: 50px;
+  margin-bottom: 45px;
 }
 
 
 .save-btn-wrapper {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
 }
 
 .save-btn {
   background-color: transparent;
   border: none;
-  color: var(--nord6-color);
+  color: var(--nord4-color);
   cursor: pointer;
   font-size: 3rem;
   font-family: var(--tab-font-family);
@@ -110,6 +115,16 @@ textarea {
 .wrapper {
   display: flex;
   justify-content: space-between;
+}
+
+.fa-trash-can {
+  font-size: 3rem;
+  color: var(--nord4-color)
+}
+
+.fa-trash-can:hover {
+  transition: color 0.5s ease;
+  color: var(--aurora0-color);
 }
 
 .save-btn:hover {
@@ -130,6 +145,7 @@ https://stackoverflow.com/questions/2610497/change-a-html5-inputs-placeholder-co
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin-right: 30px;
 }
 
 /* Hide default HTML checkbox */
