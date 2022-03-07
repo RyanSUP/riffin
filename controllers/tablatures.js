@@ -40,7 +40,7 @@ const createTablature = (req, res) => {
         .then(profile => {
             profile.tabs.push(tab)
             profile.save(() => {
-                res.redirect('/')
+                res.redirect(`/tablatures/${tab.id}`)
             })
         })
     })
@@ -81,7 +81,9 @@ const update = (req, res) => {
     Tablature.findById(req.params.id)
     .then(tab => {
         if(tab.owner.equals(req.user.profile._id)) {
+            console.log(tab.public)
             tab.name = req.body.name
+            tab.public = !!req.body.public
             tab.notesOnStrings = tabScripts.arrayifyTextareaInput(req.body.notesOnStrings)
             tab.save()
             .then(() => {

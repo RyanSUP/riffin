@@ -87,6 +87,7 @@ textarea, .tab-name-input {
 .tab-name-input {
   margin-bottom: 75px;
   font-size: 3rem;
+  flex-grow: 1;
 }
 
 textarea {
@@ -136,7 +137,7 @@ Change placeholder color with a little help from my friends:
 https://stackoverflow.com/questions/2610497/change-a-html5-inputs-placeholder-color-with-css
 */
 ::placeholder { /* Most modern browsers support this now. */
- color:    var(--nord3-color);
+ color: var(--nord3-color);
 }
 
 /* The switch - the box around the slider */

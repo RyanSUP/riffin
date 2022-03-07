@@ -1,8 +1,8 @@
-  <form class="tab-form" action="/tablatures" method="POST" autocomplete="off">
+  <form class="tab-form" action="/tablatures/<%= tab.id %> " method="POST" autocomplete="off">
     <div class="wrapper">
-      <input type="text" name="name" class="tab-name-input" placeholder="a tasty lick" >
+      <input type="text" name="name" class="tab-name-input" placeholder="a tasty lick" value="<%= tab.name %>" >
       <label class="switch">
-        <input type="checkbox" name="public">
+        <input type="checkbox" name="public" value="<%= tab.public %>">
         <span class="slider round"></span>
       </label>
     </div>
