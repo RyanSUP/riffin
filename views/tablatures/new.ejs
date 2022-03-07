@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <form class="tab-form" action="/tablatures" method="POST" autocomplete="off">
+  <form id="tab-input-form" class="tab-form" action="/tablatures" method="POST" autocomplete="off">
     <div class="wrapper">
       <input type="text" name="name" class="tab-name-input" placeholder="a tasty lick" >
       <label class="switch">
@@ -18,13 +18,19 @@ G----------------------------------------
 D----------------------------------------
 A----------------------------------------
 E----------------------------------------</textarea>
-      <div class="save-btn-wrapper">
-        <button type="submit" class="btn save-btn">
-          SAVE
-        </button>
-        <br>
-      </div>
-  </form>
+  <select name="collection">
+    <option value="">Add to collection</option>
+    <% collections.forEach(collection => { %>
+      <option value="<%= collection.id %>"><%= collection.name %></option>
+    <% }) %>
+  </select>
+  <div class="save-btn-wrapper">
+    <button form="tab-input-form" type="submit" class="btn save-btn">
+      SAVE
+    </button>
+  </div>
+</form>
+
 
 </main>
 

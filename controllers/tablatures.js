@@ -18,8 +18,12 @@ const index = (req, res) => {
 }
 
 const newTablature = (req, res) => {
-    res.render('tablatures/new', {
-        title: 'Sick, a New Lick!',
+    Collection.find({})
+    .then(collections => {
+        res.render('tablatures/new', {
+            title: 'Sick, a New Lick!',
+            collections,
+        })
     })
 }
 
@@ -36,6 +40,13 @@ const createTablature = (req, res) => {
     const tab = new Tablature(req.body)
     tab.save()
     .then(()=> {
+        if(req.body.collection !== '') {
+            Collection.findById(req.body.collection)
+            .then(collection => {
+                collection.tabs.push(tab)
+                collection.save()
+            })
+        }
         Profile.findById(tab.owner)
         .then(profile => {
             profile.tabs.push(tab)
