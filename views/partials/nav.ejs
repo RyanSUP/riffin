@@ -2,17 +2,15 @@
 <body>
   <nav>
     <% if (user) { %>
-      <a href="/tablatures/trending" class ="brand">Lickwarden</a>
+      <div  class ="brand">
+        <a href="/tablatures/trending" class="brand">Lickwarden</a>
+      </div>
       <a href="/tablatures/new">
         <span>New</span>
         <i class="fa-solid fa-pen-to-square"></i>
       </a>
       <a href="/profiles/<%= user.profile._id %>">
         <span>Licks</span>
-        <i class="fa-solid fa-music"></i>
-      </a>
-      <a href="/collections">
-        <span>Collections</span>
         <i class="fa-solid fa-bookmark"></i>
       </a>
       <a href="/tablatures/trending">

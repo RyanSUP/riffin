@@ -6,9 +6,16 @@ main {
 }
 
 .gallery-container {
-  margin: 25px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex-basis: 40%;
   white-space: nowrap;
+}
+
+.gallery-container:hover {
+  transition: background-color 0.5s ease;
+  background-color: var(--nord2-color);
 }
 
 h1 {
