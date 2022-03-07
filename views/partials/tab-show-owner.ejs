@@ -2,7 +2,11 @@
   <div class="wrapper">
     <input type="text" name="name" class="tab-name-input" placeholder="a tasty lick" value="<%= tab.name %>" >
     <label class="switch">
-      <input type="checkbox" name="public" value="<%= tab.public %>">
+      <input type="checkbox" name="public"
+        <% if (tab.public) { %>
+          checked="true"
+        <% } %>
+      >
       <span class="slider round"></span>
     </label>
   </div>
