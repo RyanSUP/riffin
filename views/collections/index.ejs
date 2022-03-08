@@ -3,6 +3,10 @@
 <%- include('../partials/nav') %>
 
 <main>
+    <form action="/collections" method="POST">
+        <input type="text" name="name">
+        <button type="submit">Create collection</button>
+    </form>
     <% collections.forEach(collection => { %>
         <div class="collection">
             <h1><%= collection.name %></h1>

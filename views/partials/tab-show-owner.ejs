@@ -7,7 +7,7 @@
           checked="true"
         <% } %>
       >
-      <span class="slider round"><i class="fa-regular fa-eye-slash"></i></span>
+      <span class="slider round"></span>
     </label>
   </div>
   <!-- There are 240 available characters in this layout, but need to add an additional 5 to account for new line characters -->
@@ -18,6 +18,12 @@
 <%= tab.notesOnStrings[3]%>
 <%= tab.notesOnStrings[4]%>
 <%= tab.notesOnStrings[5]%></textarea>
+<select name="folder">
+  <option value="">Add to collection</option>
+  <% collections.forEach(collection => { %>
+    <option value="<%= collection.id %>"><%= collection.name %></option>
+  <% }) %>
+</select>
   <div class="save-btn-wrapper">
     <button type="submit" class="btn save-btn">
       SAVE

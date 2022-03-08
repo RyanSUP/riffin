@@ -16,6 +16,11 @@ const tablatureSchema = new Schema({
         type: Boolean, 
         default: false
     },
+    folder: {
+        type: Schema.Types.ObjectId, 
+        ref: 'Collection',
+        default: null
+    },
 },  { timestamps: true })
 
 const Tablature = mongoose.model('Tablature', tablatureSchema)

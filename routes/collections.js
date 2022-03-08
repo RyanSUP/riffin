@@ -8,10 +8,13 @@ const router = Router()
 // GET - localhost:3000/collections
 router.get('/', isLoggedIn, collectionsCtrl.index)
 
+// POST - localhost:3000/collections
+router.post('/', isLoggedIn, collectionsCtrl.create)
+
 // GET - localhost:3000/collections/:id
 router.get('/:id', isLoggedIn, collectionsCtrl.show)
 
-// POST - localhost:3000/collections/:id
+// delete - localhost:3000/collections/:id
 router.delete('/:id', collectionsCtrl.delete)
 
 export {

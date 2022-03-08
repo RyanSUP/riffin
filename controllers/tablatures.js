@@ -36,12 +36,14 @@ const createTablature = (req, res) => {
     req.body.public = !!req.body.public
     // Obviously going to need to do more cleaning at some point so I'm setting up a tabScripts file.
     req.body.notesOnStrings = tabScripts.arrayifyTextareaInput(req.body.notesOnStrings)
+    // Check the collection
+    if(req.body.folder === '') {req.body.folder = undefined }
     // Push the tab into the users Profile.tabs array
     const tab = new Tablature(req.body)
     tab.save()
     .then(()=> {
-        if(req.body.collection !== '') {
-            Collection.findById(req.body.collection)
+        if(req.body.folder) {
+            Collection.findById(req.body.folder)
             .then(collection => {
                 collection.tabs.push(tab)
                 collection.save()
@@ -66,18 +68,22 @@ const show = (req, res) => {
 
     Tablature.findById(req.params.id)
     .then(tab => {
-        let userAuth
-        if(req.user === undefined) {
-            userAuth = 'guest'
-        } else if(tab.owner.equals(req.user.profile._id)) {
-            userAuth = 'owner'
-        } else {
-            userAuth = 'user'
-        }
-        res.render('tablatures/show', {
-            title: tab.name,
-            tab,
-            userAuth,
+        Collection.find()
+        .then(collections => {
+            let userAuth
+            if(req.user === undefined) {
+                userAuth = 'guest'
+            } else if(tab.owner.equals(req.user.profile._id)) {
+                userAuth = 'owner'
+            } else {
+                userAuth = 'user'
+            }
+            res.render('tablatures/show', {
+                title: tab.name,
+                collections,
+                tab,
+                userAuth,
+            })
         })
     })
     .catch(error => {
