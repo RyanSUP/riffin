@@ -1,8 +1,11 @@
 
-<p><%= tab.name %></p>
-<%= tab.notesOnStrings[0]%>
-<%= tab.notesOnStrings[1]%>
-<%= tab.notesOnStrings[2]%>
-<%= tab.notesOnStrings[3]%>
-<%= tab.notesOnStrings[4]%>
-<%= tab.notesOnStrings[5]%>
+    <div class="wrapper">
+      <input type="text" name="name" class="tab-name-input" placeholder="a tasty lick" value="<%= tab.name %>" >
+    </div>
+    <!-- There are 240 available characters in this layout, but need to add an additional 5 to account for new line characters -->
+  <%= tab.notesOnStrings[0]%>
+  <%= tab.notesOnStrings[1]%>
+  <%= tab.notesOnStrings[2]%>
+  <%= tab.notesOnStrings[3]%>
+  <%= tab.notesOnStrings[4]%>
+  <%= tab.notesOnStrings[5]%>
