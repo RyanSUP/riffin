@@ -18,10 +18,21 @@
 <%= tab.notesOnStrings[3]%>
 <%= tab.notesOnStrings[4]%>
 <%= tab.notesOnStrings[5]%></textarea>
+<!-- if a tab has a collection, display top option as current collection -->
+<!-- and a 'none' option -->
+<!-- else show option "add to collection" -->
 <select name="folder">
-  <option value="">Add to collection</option>
+  <% if (tab.folder === null) { %>
+    <option value="null" selected>Add to collection</option>
+  <% } else { %>
+    <option value="remove">None</option>
+  <% } %>
   <% collections.forEach(collection => { %>
-    <option value="<%= collection.id %>"><%= collection.name %></option>
+    <% if (collection.equals(tab.folder)) { %>
+      <option selected value="current"><%= collection.name %></option>
+    <% } else { %>
+      <option value="<%= collection.id %>"><%= collection.name %></option>
+    <% } %>
   <% }) %>
 </select>
   <div class="save-btn-wrapper">
@@ -30,6 +41,7 @@
     </button>  
   </div>
 </form>
+
 <form class="delete-form" action="/tablatures/<%= tab.id %>?_method=DELETE" method="POST">
   <button type="submit" class="btn">
     <i class="fa-regular fa-trash-can"></i>

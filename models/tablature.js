@@ -19,7 +19,7 @@ const tablatureSchema = new Schema({
     folder: {
         type: Schema.Types.ObjectId, 
         ref: 'Collection',
-        default: null
+        default: null,
     },
 },  { timestamps: true })
 

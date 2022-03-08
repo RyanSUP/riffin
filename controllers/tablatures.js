@@ -95,10 +95,45 @@ const show = (req, res) => {
 }
 
 const update = (req, res) => {
+    // Need to update collection
+    // If collection value = "", remove collection
     Tablature.findById(req.params.id)
     .then(tab => {
         if(tab.owner.equals(req.user.profile._id)) {
-            console.log(tab.public)
+            if(req.body.folder === 'null' || req.body.folder === 'current') {
+                // do nothing
+            } else if(req.body.folder === 'remove') {
+                // tab IS in a collection
+                // tab wants NO collection
+                // remove tab from collection
+                // remove collection from tab
+                Collection.updateOne({_id: tab.folder}, {$pull: {tabs: tab._id}}, (error)=>{
+                    console.log(error)
+                    if(error) res.redirect(`/tablatures/${tab._id}`)
+                })
+                tab.folder = null
+            } else if(req.body.folder !== tab.folder) {
+                // a new collection was selected
+                // therefore collection is changing.
+                // if tab is currently in a collection
+                if(tab.folder !== null) {
+                    // remove tab from the collection
+                    Collection.updateOne({_id: tab.folder}, {$pull: {tabs: tab._id}}, (error)=>{
+                        console.log(error)
+                        if(error) res.redirect(`/tablatures/${tab._id}`)
+                    })
+                }
+                // add tab to new collection
+                Collection.findById(req.body.folder)
+                .then(collection => {
+                    collection.tabs.push(tab)
+                    collection.save()
+                })
+                tab.folder = req.body.folder
+            }
+
+            // Remove tab from collection
+
             tab.name = req.body.name
             tab.public = !!req.body.public
             tab.notesOnStrings = tabScripts.arrayifyTextareaInput(req.body.notesOnStrings)
@@ -116,7 +151,8 @@ const update = (req, res) => {
     })
 }
 
-// ! At some point I'll need to make sure tabs are removed from collections too
+// ! At some point I'll need to make sure tabs are removed from collections too'
+// ! and profile!
 const deleteTab = (req, res) => {
     Tablature.findById(req.params.id)
     .then(tab => {
