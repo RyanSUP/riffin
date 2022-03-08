@@ -34,3 +34,6 @@ flopppy disk
 
 add
 <i class="fa-solid fa-square-plus"></i>
+
+minus
+<i class="fa-solid fa-circle-minus"></i>

@@ -3,13 +3,6 @@
 <%- include('../partials/nav') %>
 
 <main>
-    <div>
-        <!-- collection name -->
-        <!-- top 4 tab names -->
-        <!-- If it goes more than  4, 5th element will be ... -->
-        <!-- User can click ... or collection name to view all tabs in that collection -->
-        <!-- user can click any tab to be redirected to that tab -->
-    </div>
     <% collections.forEach(collection => { %>
         <div class="collection">
             <h1><%= collection.name %></h1>
@@ -28,7 +21,7 @@
                     </div>
                 <% }) %>
             </div>
-            <a class="collection-link" href="">view entire collection</a>
+            <a class="collection-link" href="/collections/<%=collection.id%>">view entire collection</a>
         </div>
     <% }) %>
 </main>
