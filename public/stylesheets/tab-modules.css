@@ -1,0 +1,93 @@
+/* Containers */
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+}
+
+.flex {
+    display: flex;
+    gap: 2rem;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.grow-1 {
+    flex-grow: 1;
+}
+
+/* Sizing */
+.xl {
+    font-size: 3rem;
+}
+
+.lg {
+    font-size: 2.8rem;
+}
+
+.md {
+    font-size: 2.2rem;
+}
+
+.sm {
+    font-size: 1.6rem;
+}
+
+/* Helpers */
+.margin-sm {
+    margin: 20px;
+}
+
+.margin-lg {
+    margin: 40px;
+}
+
+.width-sm {
+    width: 200px;
+}
+
+/* Tab cards */
+.tab-card {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+
+.tab-card h1 {
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+.tab-card footer {
+    align-self: flex-end;
+    font-size: 0.6em;
+    margin-top: 15px;
+}
+
+.tab-card footer a:hover {
+    text-decoration: underline;
+}
+
+.tab-card p {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.tab-card a {
+    margin: 0;
+    text-decoration: none;
+}
+
+

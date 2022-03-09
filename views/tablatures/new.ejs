@@ -2,36 +2,48 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <form id="tab-input-form" class="tab-form" action="/tablatures" method="POST" autocomplete="off">
-    <div class="wrapper">
-      <input type="text" name="name" class="tab-name-input" placeholder="a tasty lick" >
-      <label class="switch">
-        <input type="checkbox" name="public">
-        <span class="slider round"></span>
-      </label>
-    </div>
-    <!-- There are 240 available characters in this layout, but need to add an additional 5 to account for new line characters -->
-    <textarea name="notesOnStrings" cols="40" rows="6" maxlength="251">
+  <div class="flex-col center lg">
+    <form action="/tablatures" method="POST" autocomplete="off">
+
+      <div class="flex">
+        <!-- Tab name -->
+        <input type="text" name="name" class="text-input grow-1 xl" placeholder="a tasty lick" >
+        
+        <!-- Public switch -->
+        <label class="switch">
+          <input type="checkbox" name="public">
+          <span class="slider round"></span>
+        </label>
+      
+      </div>
+      
+      <!-- Folder select -->
+      <select name="folder">
+        <option value="null" selected>Add to collection</option>
+        <% collections.forEach(collection => { %>
+        <option value="<%= collection.id %>"><%= collection.name %></option>
+        <% }) %>
+      </select>
+    
+      <!-- Tab input field -->
+      <!-- There are 240 available characters in this layout, but need to add an additional 5 to account for new line characters -->
+      <textarea name="notesOnStrings" cols="40" rows="6" maxlength="245">
 e----------------------------------------
 B----------------------------------------
 G----------------------------------------
 D----------------------------------------
 A----------------------------------------
 E----------------------------------------</textarea>
-  <select name="folder">
-    <option value="">Add to collection</option>
-    <% collections.forEach(collection => { %>
-      <option value="<%= collection.id %>"><%= collection.name %></option>
-    <% }) %>
-  </select>
-  <div class="save-btn-wrapper">
-    <button form="tab-input-form" type="submit" class="btn save-btn">
-      SAVE
-    </button>
+    
+    <!-- Save btn form -->
+      <div class="flex center">
+        <button type="submit" class="btn save-btn">
+          SAVE
+        </button>  
+      </div>
+    
+    </form>
   </div>
-</form>
-
-
 </main>
 
 <%- include('../partials/footer') %>

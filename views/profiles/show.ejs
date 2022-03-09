@@ -3,20 +3,16 @@
 <%- include('../partials/nav') %>
 
 <main>
-
-    <% tabs.forEach(tab => { %>
-        <div class="gallery-container">
-            <a href="/tablatures/<%= tab._id %>" class="tab-link gallery-element">
-                <h3><%= tab.name %></h3>
-                <p class="tab-text"><%= tab.notesOnStrings[0] %></p>
-                <p class="tab-text"><%= tab.notesOnStrings[1] %></p>
-                <p class="tab-text"><%= tab.notesOnStrings[2] %></p>
-                <p class="tab-text"><%= tab.notesOnStrings[3] %></p>
-                <p class="tab-text"><%= tab.notesOnStrings[4] %></p>
-                <p class="tab-text"><%= tab.notesOnStrings[5] %></p>
-            </a>
+    <div class="margin-sm">
+        <div class="flex wrap space-around">
+            <% tabs.forEach(tab => { %>
+                <!-- Gallery element will need to be a grid -->
+                <div class="flex-col md">
+                    <%- include('../partials/tab-card.ejs', {tab, showOwner: false}) %>
+                </div>
+            <% }) %>
         </div>
-    <% }) %>
+    </div>
 </main>
 
 <%- include('../partials/footer') %>

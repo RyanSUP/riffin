@@ -20,6 +20,7 @@ html {
   --nord2-color: #434C5E;
   --nord3-color: #4C566A;
   --nord4-color: #D8DEE9;
+  --nord5-color: #E5E9F0;
   --nord6-color: #ECEFF4;
   --aurora0-color: #BF616A;
   --aurora3-color: #EBCB8B;
@@ -56,151 +57,57 @@ nav a {
   flex-grow: 1;
 }
 
-main {
-  height: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 20px;
+p {
+  color: var(--nord5-color);
 }
 
 h1 {
-  font-size: 3.6rem;
+  font-size: 3rem;
+  color: var(--nord5-color);
+  margin: 0;
 }
 
 a {
   color: var(--nord6-color);
   margin: 10px 20px;
+  text-decoration: none;
 }
 
-textarea, .tab-name-input {
-  display: block;
-  background-color: var(--nord0-color);
-  border: none;
-  color: var(--nord6-color);
-  font-size: 2.8rem;
-  outline: none;
-  resize: none;
+hr {
+  color: var(--nord5-color);
+  width: 95%;
 }
 
-.tab-name-input {
-  margin-bottom: 75px;
-  font-size: 3rem;
-  flex-grow: 1;
-}
-
-textarea {
-  margin-bottom: 45px;
-}
-
-
-.save-btn-wrapper {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
+/* Button stuff */
 .btn {
   background-color: transparent;
   border: none;
   color: var(--nord4-color);
   cursor: pointer;
   font-size: 3rem;
+
+}
+
+.save-btn {
   font-family: var(--tab-font-family);
   font-weight: 100; 
-}
-
-.wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-.fa-trash-can {
-  font-size: 3rem;
-  color: var(--nord4-color)
-}
-
-.fa-trash-can:hover {
-  transition: color 0.5s ease;
-  color: var(--aurora0-color);
 }
 
 .save-btn:hover {
   transition: color 0.5s ease;
   color: var(--aurora4-color);
 }
-/* 
-Change placeholder color with a little help from my friends:
-https://stackoverflow.com/questions/2610497/change-a-html5-inputs-placeholder-color-with-css
-*/
-::placeholder { /* Most modern browsers support this now. */
- color: var(--nord3-color);
+
+.dlt-btn {
+  padding-top: 4px;
+  font-size: 3rem;
+  color: var(--nord4-color)
 }
 
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-  margin-right: 5px;
+.dlt-btn:hover {
+  transition: color 0.5s ease;
+  color: var(--aurora0-color);
 }
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--nord3-color);
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: var(--nord4-color);
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: var(--aurora4-color);
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px var(--aurora4-color);
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
 
 @media only screen and (max-width: 1025px) {
   nav span {

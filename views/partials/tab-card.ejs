@@ -1,0 +1,18 @@
+<div class="tab-card">
+    <a href="/tablatures/<%= tab._id %>">
+        <h1><%= tab.name %></h1>
+        <div>
+            <p><%= tab.notesOnStrings[0]%></p>
+            <p><%= tab.notesOnStrings[1]%></p>
+            <p><%= tab.notesOnStrings[2]%></p>
+            <p><%= tab.notesOnStrings[3]%></p>
+            <p><%= tab.notesOnStrings[4]%></p>
+            <p><%= tab.notesOnStrings[5]%></p>
+        </div>
+    </a>
+    <% if (showOwner) { %>
+        <footer>
+            <a href="">from <strong>OWNER</strong></a>
+        </footer>
+    <% } %>
+</div>

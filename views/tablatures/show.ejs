@@ -3,11 +3,15 @@
 
 <main>
     <% if (userAuth === 'owner') { %>
-        <%- include('../partials/tab-show-owner') %>
+        <div class="flex-col center lg">
+            <%- include('../partials/tab-card-edit', {tab, showOwner: false}) %>
+        </div>
     <% } else if(userAuth === 'user') { %>
-        <%- include('../partials/tab-show-user') %>
+        <%- include('../partials/tab-show-user'), {tab, showOwner: true, showBookmark: true} %>
     <% } else {%>
-        <%- include('../partials/tab-show-guest') %>
+        <div class="flex-col center lg">
+            <%- include('../partials/tab-card', {tab, showOwner: true}) %>
+        </div>
     <% } %>
 </main>
     

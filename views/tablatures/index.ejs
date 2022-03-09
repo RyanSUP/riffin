@@ -1,26 +1,16 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/gallery.css" />
 <%- include('../partials/nav') %>
 
 <!-- This is trending -->
 <main>
-    <% tabs.forEach(tab => { %>
-        <!-- Gallery element will need to be a grid -->
-        <div class="gallery-container">
-            <a href="/tablatures/<%= tab._id %>" class="tab-link">
-                <h1><%= tab.name %></h1>
-                <%= tab.notesOnStrings[0] %><br>
-                <%= tab.notesOnStrings[1] %><br>
-                <%= tab.notesOnStrings[2] %><br>
-                <%= tab.notesOnStrings[3] %><br>
-                <%= tab.notesOnStrings[4] %><br>
-                <%= tab.notesOnStrings[5] %><br>
-            </a>
-            <a href="" class="tab-link">
-                from <strong><%= tab.owner.name %></strong>
-            </a>
-        </div>
-    <% }) %>
+    <div class="flex wrap space-around">
+        <% tabs.forEach(tab => { %>
+            <!-- Gallery element will need to be a grid -->
+            <div class="flex-col md">
+                <%- include('../partials/tab-card.ejs', {tab, showOwner: true}) %>
+            </div>
+        <% }) %>
+    </div>
 </main>
 
 <%- include('../partials/footer') %>

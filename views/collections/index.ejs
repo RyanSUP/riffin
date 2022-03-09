@@ -1,32 +1,36 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/collections.css" />
 <%- include('../partials/nav') %>
 
 <main>
-    <form action="/collections" method="POST">
-        <input type="text" name="name">
-        <button type="submit">Create collection</button>
-    </form>
-    <% collections.forEach(collection => { %>
-        <div class="collection">
-            <h1><%= collection.name %></h1>
-            <div class="tabs">
-                <% collection.tabs.forEach(tab => { %>
-                    <div class="gallery-container">
-                        <a href="/tablatures/<%= tab._id %>" class="tab-link">
-                            <h2><%= tab.name %></h2>
-                            <%= tab.notesOnStrings[0] %><br>
-                            <%= tab.notesOnStrings[1] %><br>
-                            <%= tab.notesOnStrings[2] %><br>
-                            <%= tab.notesOnStrings[3] %><br>
-                            <%= tab.notesOnStrings[4] %><br>
-                            <%= tab.notesOnStrings[5] %><br>
-                        </a>
-                    </div>
-                <% }) %>
-            </div>
-            <a class="collection-link" href="/collections/<%=collection.id%>">view entire collection</a>
+    <!-- Add to collection -->
+    <form action="/collections" method="POST" autocomplete="off">
+        <div class="flex center">
+            <input class="text-input width-sm margin-lg" type="text" name="name" placeholder="New collection">
+            <button type="submit" class="btn save-btn xl">+</button>
         </div>
+    </form>
+
+    <!-- View collections -->
+    <% collections.forEach(collection => { %>
+        <div class="flex margin-lg">
+            <h1><%= collection.name %></h1>
+        </div>
+        <hr class="margin-lg">
+
+        <div class="flex wrap center sm">
+            <% collection.tabs.forEach(tab => { %>
+                <%- include('../partials/tab-card.ejs', {tab, showOwner: false}) %> 
+            <% }) %>
+        </div>
+        <% if (collection.tabs.length !== 0) { %>
+            <div class="flex center sm margin-sm">
+                <a href="/collections/<%= collection._id %>">view collection</a>
+            </div>
+        <% } else {%>
+            <div class="flex center md">
+                <p>empty</p>
+            </div>
+        <% } %> 
     <% }) %>
 </main>
 
