@@ -35,7 +35,9 @@ const createTablature = (req, res) => {
     // Force boolean value
     req.body.public = !!req.body.public
     // Obviously going to need to do more cleaning at some point so I'm setting up a tabScripts file.
-    req.body.notesOnStrings = tabScripts.arrayifyTextareaInput(req.body.notesOnStrings)
+    req.body.rawInput = tabScripts.arrayifyRawInput(req.body.rawInput)
+    req.body.notesOnStrings = tabScripts.fillNotesOnStrings(req.body.rawInput)
+    req.body.tabGrid = tabScripts.arrayifyRawInput(req.body.tabGrid)
     // Check the collection
     if(req.body.folder === 'null') {
         req.body.folder = undefined

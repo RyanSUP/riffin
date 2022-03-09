@@ -12,6 +12,8 @@ const tablatureSchema = new Schema({
         default: 'a tasty lick'
     },
     notesOnStrings: [String],
+    rawInput: [String],
+    tabGrid: [String],
     public: { 
         type: Boolean, 
         default: false

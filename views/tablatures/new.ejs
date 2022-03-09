@@ -1,12 +1,12 @@
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/tablature-edit-styles.css" />
 <link rel="stylesheet" href="/stylesheets/tablature-styles.css" />
-
+<script defer src="/scripts/tab-editor.js"></script>
 <%- include('../partials/nav') %>
 
 <main>
   <div class="flex-col center lg">
-    <form class="bg-color-0" action="/tablatures" method="POST" autocomplete="off">
+    <form class="bg-color-0" action="/tablatures" method="POST" autocomplete="off" id="tab-input-form">
 
       <div class="flex">
         <!-- Tab name -->
@@ -31,15 +31,10 @@
         <p class="sm no-marg">public</p>
       </div>
     
-      <!-- Tab input field -->
-      <!-- There are 240 available characters in this layout, but need to add an additional 5 to account for new line characters -->
-      <textarea name="notesOnStrings" cols="40" rows="6" maxlength="251">
-e----------------------------------------
-B----------------------------------------
-G----------------------------------------
-D----------------------------------------
-A----------------------------------------
-E----------------------------------------</textarea>
+      <div class="tab-editor">
+        <textarea name="tabGrid"cols="40" rows="6" maxlength="251" id="shadow"></textarea>
+        <textarea name="rawInput" cols="40" rows="6" maxlength="251" id="input"></textarea>
+      </div>
     
     <!-- Save btn form -->
       <div class="flex center">

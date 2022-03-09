@@ -1,4 +1,26 @@
 /* Tab inputs */
+#shadow {
+  color: #434C5E;
+  position: absolute;
+  z-index: -1;
+  margin: 0;
+}
+
+.tab-editor {
+  position: relative;
+  z-index: 400;
+}
+
+#raw {
+  display: none;
+}
+
+#input {
+  z-index: 600;
+  background: transparent;
+  color: var(--nord6-color);
+}
+
 textarea {
     margin: 45px 0;
 }
