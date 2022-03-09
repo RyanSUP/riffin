@@ -66,37 +66,10 @@
     width: 200px;
 }
 
-/* Tab cards */
-.tab-card {
-    display: flex;
-    flex-direction: column;
-    padding: 8px;
+.hidden {
+    visibility: hidden;
 }
 
-
-.tab-card h1 {
-    font-size: 1.2em;
-    margin-top: 0;
+.bg-color-0 {
+    background-color: var(--nord0-color);
 }
-
-.tab-card footer {
-    align-self: flex-end;
-    font-size: 0.6em;
-    margin-top: 15px;
-}
-
-.tab-card footer a:hover {
-    text-decoration: underline;
-}
-
-.tab-card p {
-    margin: 0;
-    white-space: nowrap;
-}
-
-.tab-card a {
-    margin: 0;
-    text-decoration: none;
-}
-
-

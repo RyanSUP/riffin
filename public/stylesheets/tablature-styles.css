@@ -1,0 +1,44 @@
+/* Tab cards */
+.tab-card {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    border-radius: 15px;
+    background-color: var(--nord0-color);
+}
+
+.tab-card:hover {
+    transition:  box-shadow 0.3s ease;
+    box-shadow: 0px 0px 16px 0px var(--nord3-color);
+
+}
+
+.tab-card h1 {
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+.tab-card div {
+}
+
+.tab-card footer {
+    align-self: flex-end;
+    font-size: 0.6em;
+    margin-top: 15px;
+}
+
+.tab-card footer a:hover {
+    text-decoration: underline;
+}
+
+.tab-card p {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.tab-card a {
+    margin: 0;
+    text-decoration: none;
+}
+
+

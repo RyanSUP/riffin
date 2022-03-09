@@ -17,6 +17,19 @@ textarea, .text-input {
     margin-top: 55px;
 }
 
+select {
+  display: block;
+  background-color: var(--nord0-color);
+  border: none;
+  color: var(--nord3-color);
+  font-size: 1.6rem;
+}
+
+option {
+  background-color: var(--nord0-color);
+}
+
+
 /* 
 Change placeholder color with a little help from my friends:
 https://stackoverflow.com/questions/2610497/change-a-html5-inputs-placeholder-color-with-css

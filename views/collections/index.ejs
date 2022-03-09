@@ -1,11 +1,13 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/tablature-styles.css" />
+<link rel="stylesheet" href="/stylesheets/tablature-edit-styles.css" />
 <%- include('../partials/nav') %>
 
 <main>
     <!-- Add to collection -->
     <form action="/collections" method="POST" autocomplete="off">
         <div class="flex center">
-            <input class="text-input width-sm margin-lg" type="text" name="name" placeholder="New collection">
+            <input class="text-input width-sm" type="text" name="name" placeholder="New collection">
             <button type="submit" class="btn save-btn xl">+</button>
         </div>
     </form>
