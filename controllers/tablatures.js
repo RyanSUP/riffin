@@ -37,7 +37,9 @@ const createTablature = (req, res) => {
     // Obviously going to need to do more cleaning at some point so I'm setting up a tabScripts file.
     req.body.notesOnStrings = tabScripts.arrayifyTextareaInput(req.body.notesOnStrings)
     // Check the collection
-    if(req.body.folder === '') {req.body.folder = undefined }
+    if(req.body.folder === 'null') {
+        req.body.folder = undefined
+    }
     // Push the tab into the users Profile.tabs array
     const tab = new Tablature(req.body)
     tab.save()
@@ -60,7 +62,7 @@ const createTablature = (req, res) => {
     .catch(error => {
         console.log(error)
         // send back the stored tab so the user doesnt lose their lick if the save fails
-        res.redirect('/tablatures/new', {workInProgress: req.body})
+        res.redirect('/tablatures/new')
     })
 }
 
