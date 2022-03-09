@@ -18,12 +18,15 @@
       </div>
       
       <!-- Folder select -->
-      <select name="folder">
-        <option value="null" selected>Add to collection</option>
-        <% collections.forEach(collection => { %>
-        <option value="<%= collection.id %>"><%= collection.name %></option>
-        <% }) %>
-      </select>
+      <div class="flex space-between">
+        <select name="folder">
+          <option value="null" selected>Add to collection</option>
+          <% collections.forEach(collection => { %>
+          <option value="<%= collection.id %>"><%= collection.name %></option>
+          <% }) %>
+        </select>
+        <p class="sm no-marg">public</p>
+      </div>
     
       <!-- Tab input field -->
       <!-- There are 240 available characters in this layout, but need to add an additional 5 to account for new line characters -->

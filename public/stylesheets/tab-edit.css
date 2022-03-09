@@ -29,9 +29,9 @@ https://stackoverflow.com/questions/2610497/change-a-html5-inputs-placeholder-co
    .switch {
      position: relative;
      display: inline-block;
-     width: 60px;
-     height: 34px;
-     margin-right: 5px;
+     width: 30px;
+     height: 13px;
+     align-self: center;
    }
    
    /* Hide default HTML checkbox */
@@ -57,10 +57,8 @@ https://stackoverflow.com/questions/2610497/change-a-html5-inputs-placeholder-co
    .slider:before {
      position: absolute;
      content: "";
-     height: 26px;
-     width: 26px;
-     left: 4px;
-     bottom: 4px;
+     height: 12px;
+     width: 12px;
      background-color: var(--nord4-color);
      -webkit-transition: .4s;
      transition: .4s;
@@ -75,9 +73,9 @@ https://stackoverflow.com/questions/2610497/change-a-html5-inputs-placeholder-co
    }
    
    input:checked + .slider:before {
-     -webkit-transform: translateX(26px);
-     -ms-transform: translateX(26px);
-     transform: translateX(26px);
+     -webkit-transform: translateX(18px);
+     -ms-transform: translateX(18px);
+     transform: translateX(18px);
    }
    
    /* Rounded sliders */
