@@ -72,7 +72,7 @@ inputArea.addEventListener('keydown', (evt) => {
         inputArea.selectionStart = cursorPos - 1
         inputArea.selectionEnd = cursorPos - 1
       }
-  } else if (evt.code === 'KeyC') {
+  } else if (evt.code === 'KeyD') {
     evt.preventDefault()
     let positions = []
     
