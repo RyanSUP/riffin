@@ -14,7 +14,7 @@
 #rawInput {
   z-index: 600;
   background: transparent;
-  color: var(--nord6-color);
+  color: var(--frost0-color);
 }
 
 textarea {
@@ -96,11 +96,11 @@ https://stackoverflow.com/questions/2610497/change-a-html5-inputs-placeholder-co
    }
    
    input:checked + .slider {
-     background-color: var(--aurora4-color);
+     background-color: var(--frost0-color);
    }
    
    input:focus + .slider {
-     box-shadow: 0 0 1px var(--aurora4-color);
+     box-shadow: 0 0 1px var(--frost0-color);
    }
    
    input:checked + .slider:before {

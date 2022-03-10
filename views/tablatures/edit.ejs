@@ -24,20 +24,23 @@
       </div>
       
       <!-- Folder select -->
-      <select name="folder">
-        <% if (tab.folder === null) { %>
-          <option value="null" selected>Add to collection</option>
-        <% } else { %>
-          <option value="remove">None</option>
-        <% } %>
-        <% collections.forEach(collection => { %>
-          <% if (collection.equals(tab.folder)) { %>
-            <option selected value="current"><%= collection.name %></option>
+      <div class="flex space-between">
+        <select name="folder">
+          <% if (tab.folder === null) { %>
+            <option value="null" selected>Add to collection</option>
           <% } else { %>
-            <option value="<%= collection.id %>"><%= collection.name %></option>
+            <option value="remove">None</option>
           <% } %>
-        <% }) %>
-      </select>
+          <% collections.forEach(collection => { %>
+            <% if (collection.equals(tab.folder)) { %>
+              <option selected value="current"><%= collection.name %></option>
+            <% } else { %>
+              <option value="<%= collection.id %>"><%= collection.name %></option>
+            <% } %>
+          <% }) %>
+        </select>
+        <p class="sm no-marg dark-text">public</p>
+      </div>
     
       <!-- Tab input field -->
       <div class="tab-editing" id="edit">

@@ -21,7 +21,7 @@ const newTablature = (req, res) => {
     Collection.find({})
     .then(collections => {
         res.render('tablatures/new', {
-            title: 'New Lick',
+            title: 'New riff',
             collections,
         })
     })
@@ -187,7 +187,7 @@ const edit = (req, res) => {
             .then(collections => {
                 res.render('tablatures/edit', {
                     tab, 
-                    title: 'Edit lick',
+                    title: 'Edit riff',
                     collections,
                 })
             })

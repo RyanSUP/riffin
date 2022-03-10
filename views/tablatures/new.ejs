@@ -10,7 +10,7 @@
 
       <div class="flex">
         <!-- Tab name -->
-        <input type="text" name="name" class="text-input grow-1 xl" placeholder="a tasty lick" >
+        <input type="text" name="name" class="text-input grow-1 xl" placeholder="a tasty riff" autocomplete="nope" >
         
         <!-- Public switch -->
         <label class="switch">
@@ -28,7 +28,7 @@
           <option value="<%= collection.id %>"><%= collection.name %></option>
           <% }) %>
         </select>
-        <p class="sm no-marg">public</p>
+        <p class="sm no-marg dark-text">public</p>
       </div>
     
       <div class="tab-editor">

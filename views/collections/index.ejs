@@ -7,25 +7,24 @@
     <!-- Add to collection -->
     <form action="/collections" method="POST" autocomplete="off">
         <div class="flex center">
-            <input class="text-input width-sm" type="text" name="name" placeholder="New collection">
+            <input class="text-input width-sm" type="text" name="name" placeholder="New collection" required>
             <button type="submit" class="btn save-btn xl">+</button>
         </div>
     </form>
 
     <!-- View collections -->
     <% collections.forEach(collection => { %>
-        <div class="flex margin-lg">
-            <h1><%= collection.name %></h1>
+        <div class="flex margin-lg ">
+            <h1 class="thin margin-x-sm thin-font mono-font"><%= collection.name %></h1>
         </div>
-        <hr class="margin-lg">
 
-        <div class="flex wrap center sm">
+        <div class="flex wrap center sm thin-font mono-font">
             <% collection.tabs.forEach(tab => { %>
                 <%- include('../partials/tab-card.ejs', {tab, showOwner: false}) %> 
             <% }) %>
         </div>
         <% if (collection.tabs.length !== 0) { %>
-            <div class="flex center sm margin-sm">
+            <div class="flex center sm margin-sm thin-font">
                 <a href="/collections/<%= collection._id %>">view collection</a>
             </div>
         <% } else {%>

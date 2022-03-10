@@ -58,6 +58,14 @@
     margin: 20px;
 }
 
+.margin-x-sm {
+    margin: 0 20px;
+}
+
+.margin-y-sm {
+    margin: 20px 0;
+}
+
 .margin-lg {
     margin: 40px;
 }
@@ -72,4 +80,20 @@
 
 .bg-color-0 {
     background-color: var(--nord0-color);
+}
+
+.dark-text {
+    color: var(--nord3-color);
+}
+
+.mono-font {
+  font-family: var(--tab-font-family);
+}
+
+.thin-font {
+    font-weight: 100;
+}
+
+.color-3 {
+    color: var(--nord2-color);
 }

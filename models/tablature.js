@@ -9,7 +9,7 @@ const tablatureSchema = new Schema({
     },
     name: {
         type: String,
-        default: 'a tasty lick'
+        default: 'a tasty riff'
     },
     notesOnStrings: [String],
     rawInput: [String],
