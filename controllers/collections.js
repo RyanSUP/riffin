@@ -5,7 +5,7 @@ const index = (req, res) => {
     .populate('tabs')
     .then((collections) => {
         res.render('collections/index', {
-            title: 'Riff - Collections',
+            title: 'Collections',
             collections,
         })
     })
@@ -31,7 +31,7 @@ const show = (req, res) => {
         res.render('collections/show', {
             collection,
             tabs: collection.tabs,
-            title: `Riff - ${collection.name} riffs`
+            title: `${collection.name} riffs`
         })
     })
     .catch(error => {

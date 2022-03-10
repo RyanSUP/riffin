@@ -5,7 +5,7 @@ const show = (req, res) => {
     .populate('tabs')
     .exec((error, profile) => {
         res.render('profiles/show', {
-            title: `Riff - My riffs`,
+            title: `My riffs`,
             tabs: profile.tabs
         })
     })
