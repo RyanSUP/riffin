@@ -19,6 +19,9 @@
     justify-content: space-around;
 }
 
+.center-self {
+    align-self: center;
+}
 
 .space-between {
     justify-content: space-between;

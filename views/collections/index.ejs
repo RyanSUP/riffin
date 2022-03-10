@@ -15,10 +15,10 @@
     <!-- View collections -->
     <% collections.forEach(collection => { %>
         <div class="flex margin-lg ">
-            <h1 class="thin margin-x-sm thin-font mono-font"><%= collection.name %></h1>
-            <form action="/collections/<%= collection._id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn dlt-btn">
-                    <i class="fa-regular fa-trash-can sm"></i>
+            <a href="/collections/<%= collection._id %>"><h1 class="thin thin-font mono-font"><%= collection.name %></h1></a>
+            <form class="center-self" action="/collections/<%= collection._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn dlt-btn color-3">
+                    <i class="fa-solid fa-circle-minus md"></i>
                 </button>  
             </form>
         </div>
