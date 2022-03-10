@@ -1,6 +1,7 @@
-// Riffin image
 
-// Gif
+![Logo](https://i.imgur.com/tmP7kl8.png)
+
+![Gif](https://i.imgur.com/keSI4KI.gif)
 
 Riffin is a way to jot down and organize your tasty riff ideas.
 
@@ -28,7 +29,7 @@ Riffin is born.
 ## 🎥 Art Credits
 ### [Steve Shoger](https://dribbble.com/steveschoger)
 * [Repeatable SVG background](https://heropatterns.com/)
-
+### [fontawesome](https://fontawesome.com/)
 ## 👨🏻‍🔬 Technologies used
 * HTML
 * CSS
