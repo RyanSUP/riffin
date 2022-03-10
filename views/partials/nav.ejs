@@ -8,19 +8,19 @@
       <div  class ="brand">
         <a href="/tablatures/trending" class="brand">Riffin</a>
       </div>
-      <a href="/tablatures/new">
+      <a href="/tablatures/new" <%- (title === 'New') ? 'class="active"' : ''%>>
         <span>New</span>
         <i class="fa-solid fa-pen-to-square"></i>
       </a>
-      <a href="/profiles">
+      <a href="/profiles" <%- (title === 'My riffs') ? 'class="active"' : ''%>>
         <span>My Riffs</span>
         <i class="fa-solid fa-file"></i>
       </a>
-      <a href="/collections">
+      <a href="/collections" <%- (title === 'Collections') ? 'class="active"' : ''%>>
         <span>Collections</span>
         <i class="fa-solid fa-bookmark"></i>
       </a>
-      <a href="/tablatures/trending">
+      <a href="/tablatures/trending" <%- (title === 'Trending') ? 'class="active"' : ''%>>
         <span>Trending</span>
         <i class="fa-solid fa-arrow-trend-up"></i>
       </a>

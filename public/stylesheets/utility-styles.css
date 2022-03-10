@@ -119,3 +119,7 @@
 .img-sm {
     width: 35px;
 }
+
+.active {
+    color: var(--nord6-color);
+}
