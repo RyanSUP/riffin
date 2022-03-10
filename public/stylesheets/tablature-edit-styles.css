@@ -1,5 +1,5 @@
 /* Tab inputs */
-#shadow {
+#tabGrid {
   color: #434C5E;
   position: absolute;
   z-index: -1;
@@ -11,11 +11,7 @@
   z-index: 400;
 }
 
-#raw {
-  display: none;
-}
-
-#input {
+#rawInput {
   z-index: 600;
   background: transparent;
   color: var(--nord6-color);

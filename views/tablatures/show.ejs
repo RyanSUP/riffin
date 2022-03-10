@@ -1,16 +1,15 @@
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/tablature-styles.css" />
-<link rel="stylesheet" href="/stylesheets/tablature-edit-styles.css" />
-
 <%- include('../partials/nav') %>
-
 <main>
-    <% if (userAuth === 'owner') { %>
+    <% if(userAuth === 'user') { %>
         <div class="flex-col center lg">
-            <%- include('../partials/tab-card-edit', {tab, showOwner: false}) %>
+            <%- include('../partials/tab-card'), {
+                tab, 
+                showOwner: true, 
+                showBookmark: true,
+                } %>
         </div>
-    <% } else if(userAuth === 'user') { %>
-        <%- include('../partials/tab-show-user'), {tab, showOwner: true, showBookmark: true} %>
     <% } else {%>
         <div class="flex-col center lg">
             <%- include('../partials/tab-card', {tab, showOwner: true}) %>

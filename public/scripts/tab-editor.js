@@ -1,7 +1,11 @@
-let inputArea = document.querySelector('#input')
-let shadowArea = document.querySelector('#shadow')
-let rawArea = document.querySelector('#raw')
+let inputArea = document.querySelector('#rawInput')
+let shadow = document.querySelector('#tabGrid')
+let editing = document.querySelector('edit')
+
+
 let firstCol = [0, 41, 82, 123, 164, 205]
+let secondToLast = [38, 79, 120, 161, 202, 243]
+
 
 const fillInput = (area, c) => {
   for(let i = 0; i < 6; i++) {
@@ -33,14 +37,13 @@ const replaceCharAt = (str, position, char) => {
   return str
 }
 
-const copy = () => {
-  // get all characters -1 from cursor
-  let cursor = inputArea.selectionStart
-
+if(inputArea.value === "") {
+  fillInput(inputArea, ' ')
 }
 
-fillInput(inputArea, ' ')
-fillInput(shadowArea, '-')
+if(shadow.value === "") {
+  fillInput(shadow, '-')
+}
 
 inputArea.addEventListener('keydown', (evt) => {
 
@@ -90,6 +93,7 @@ inputArea.addEventListener('keydown', (evt) => {
     if(positions[0] === 0) {
       return
     }
+
     // get all the characters behind the position
     let chars = []
     let cursor =  inputArea.selectionStart
@@ -110,6 +114,6 @@ inputArea.addEventListener('keydown', (evt) => {
 
 })
 
-input.addEventListener('paste', (event) => {
+inputArea.addEventListener('paste', (event) => {
   event.preventDefault();
 });

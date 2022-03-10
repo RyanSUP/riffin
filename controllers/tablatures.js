@@ -21,7 +21,7 @@ const newTablature = (req, res) => {
     Collection.find({})
     .then(collections => {
         res.render('tablatures/new', {
-            title: 'Sick, a New Lick!',
+            title: 'New Lick',
             collections,
         })
     })
@@ -34,7 +34,7 @@ const createTablature = (req, res) => {
     if(req.body.name === "") { req.body.name = undefined }
     // Force boolean value
     req.body.public = !!req.body.public
-    // Obviously going to need to do more cleaning at some point so I'm setting up a tabScripts file.
+    // Handle tab inputs
     req.body.rawInput = tabScripts.arrayifyRawInput(req.body.rawInput)
     req.body.notesOnStrings = tabScripts.fillNotesOnStrings(req.body.rawInput)
     req.body.tabGrid = tabScripts.arrayifyRawInput(req.body.tabGrid)
@@ -78,7 +78,7 @@ const show = (req, res) => {
             if(req.user === undefined) {
                 userAuth = 'guest'
             } else if(tab.owner.equals(req.user.profile._id)) {
-                userAuth = 'owner'
+                res.redirect(`/tablatures/<%= tab._id/edit %>`)
             } else {
                 userAuth = 'user'
             }
@@ -140,7 +140,13 @@ const update = (req, res) => {
 
             tab.name = req.body.name
             tab.public = !!req.body.public
-            tab.notesOnStrings = tabScripts.arrayifyTextareaInput(req.body.notesOnStrings)
+            tab.rawInput = tabScripts.arrayifyRawInput(req.body.rawInput)
+            req.body.rawInput = tabScripts.arrayifyRawInput(req.body.rawInput)
+            req.body.notesOnStrings = tabScripts.fillNotesOnStrings(req.body.rawInput)
+            req.body.tabGrid = tabScripts.arrayifyRawInput(req.body.tabGrid)
+            tab.rawInput = req.body.rawInput
+            tab.notesOnStrings = req.body.notesOnStrings
+            tab.tabGrid = req.body.tabGrid
             tab.save()
             .then(() => {
                 res.redirect(`/tablatures/${req.params.id}`)
@@ -173,6 +179,22 @@ const deleteTab = (req, res) => {
     })
 }
 
+const edit = (req, res) => {
+    Tablature.findById(req.params.id)
+    .then(tab => {
+        if(tab.owner.equals(req.user.profile._id)) {
+            Collection.find()
+            .then(collections => {
+                res.render('tablatures/edit', {
+                    tab, 
+                    title: 'Edit lick',
+                    collections,
+                })
+            })
+        }
+    })
+}
+
 export {
     index,
     createTablature as create,
@@ -180,4 +202,5 @@ export {
     newTablature as new,
     update,
     deleteTab as delete,
+    edit
 }
