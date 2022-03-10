@@ -12,8 +12,8 @@
     </a>
     <% if (showOwner) { %>
         <footer class="flex"> 
-            <a class="center-self" href="<%=  %>">from <strong class="sm"><%= tab.owner.name %></strong></a>
-            <a href=""><img class="circle img-sm center-self" src="<%= tab.owner.avatar %>" alt="" srcset=""></a>
+            <a class="center-self" href="/profiles/<%= tab.owner.id %>">from <strong class="sm"><%= tab.owner.name %></strong></a>
+            <a href="/profiles/<%= tab.owner.id %>"><img class="circle img-sm center-self" src="<%= tab.owner.avatar %>" alt="" srcset=""></a>
         </footer>
     <% } %>
 </div>

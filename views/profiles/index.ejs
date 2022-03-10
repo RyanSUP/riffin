@@ -4,13 +4,11 @@
 
 <main>
     <div class="margin-sm">
-        <div class="flex center margin-y-lg">
-            <h1 class="thin-font"><%= profile.name %>'s public riffs</h1>
-        </div>
         <div class="flex wrap space-around">
             <% tabs.forEach(tab => { %>
+                <!-- Gallery element will need to be a grid -->
                 <div class="flex-col md">
-                    <%- include('../partials/tab-card.ejs', {tab, showOwner: true}) %>
+                    <%- include('../partials/tab-card.ejs', {tab, showOwner: false}) %>
                 </div>
             <% }) %>
             <% if (tabs.length === 0) { %>
