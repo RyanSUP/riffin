@@ -11,7 +11,7 @@ const index = (req, res) => {
     .populate('owner')
     .exec((error, tabs) => {
         res.render('tablatures/index', {
-            title: 'Gallery',
+            title: 'Riff - Trending',
             tabs,
         })
     })
@@ -21,7 +21,7 @@ const newTablature = (req, res) => {
     Collection.find({})
     .then(collections => {
         res.render('tablatures/new', {
-            title: 'New riff',
+            title: 'Riff - New',
             collections,
         })
     })
@@ -83,7 +83,7 @@ const show = (req, res) => {
                 userAuth = 'user'
             }
             res.render('tablatures/show', {
-                title: tab.name,
+                title: `Riff - ${tab.name}`,
                 collections,
                 tab,
                 userAuth,
@@ -187,7 +187,7 @@ const edit = (req, res) => {
             .then(collections => {
                 res.render('tablatures/edit', {
                     tab, 
-                    title: 'Edit riff',
+                    title: 'Riff - Edit',
                     collections,
                 })
             })

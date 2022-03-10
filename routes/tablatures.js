@@ -6,7 +6,7 @@ const router = Router()
 
 
 // GET - localhost:3000/tablatures
-router.get('/trending', tablaturesCtrl.index)
+router.get('/trending', isLoggedIn, tablaturesCtrl.index)
 
 // GET - localhost:3000/tablatures/new
 router.get('/new', isLoggedIn, tablaturesCtrl.new)

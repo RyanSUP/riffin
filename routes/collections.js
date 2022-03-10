@@ -15,7 +15,7 @@ router.post('/', isLoggedIn, collectionsCtrl.create)
 router.get('/:id', isLoggedIn, collectionsCtrl.show)
 
 // delete - localhost:3000/collections/:id
-router.delete('/:id', collectionsCtrl.delete)
+router.delete('/:id', isLoggedIn, collectionsCtrl.delete)
 
 export {
     router
