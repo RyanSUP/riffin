@@ -55,7 +55,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: var(--frost0-color);
 }
 
@@ -134,5 +134,8 @@ main {
 @media only screen and (max-width: 1025px) {
   nav span {
     display: none;
+  }
+  nav a {
+    font-size: 2rem;
   }
 }
