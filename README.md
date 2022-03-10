@@ -1,11 +1,11 @@
 
-![Logo](https://i.imgur.com/tmP7kl8.png)
-
+![Logo](https://i.imgur.com/tmP7kl8.png)  
+A no-nonsense tablature sketchpad  
 ![Gif](https://i.imgur.com/keSI4KI.gif)
 
-Riffin is a way to jot down and organize your tasty riff ideas.
 
-# [🌊 Start Riffin 🎸](https://riffin.herokuapp.com/)
+
+# [🌊 click here to start Riffin 🎸](https://riffin.herokuapp.com/)
 
 ## 🎼 The tablature editor  
 Step aside, notepad.exe -- Riffin uses a no-nonsense, custom-built editor that takes the hastle out of writing tablature.
@@ -16,30 +16,37 @@ Duplicate chords with **D**
 
 *Now you're ready to rock.*  
     
-(editor currently does not support character inputs, only numbers)
+(editor currently does not support character inputs, only numbers, space, backspace, and 'D')
 
 ---
 
 ## 💡 Project Inspiration 
 Sometimes an idea is just an idea worth writing down.   
 
-The problem is writing tablature in a text editor or scoring software is just too cumbersome for quick ideas, so I started writing on notecards. Then trying to organize and quickly find notecards became its own problem.
+The problem is writing tablature in a text editor or scoring software is just too cumbersome for quick ideas, so I started writing on notecards. Trying to organize and quickly find notecards became its own problem.
 
-Riffin is born.
+Riffin was born.    
+#
 ## 🎥 Art Credits
 ### [Steve Shoger](https://dribbble.com/steveschoger)
 * [Repeatable SVG background](https://heropatterns.com/)
-### [fontawesome](https://fontawesome.com/)
-## 👨🏻‍🔬 Technologies used
+### [fontawesome](https://fontawesome.com/)  
+## 👨🏻‍🔬 Technologies use  
+This project showcases MEN stack and RESTful routing technologies
 * HTML
 * CSS
 * JavaScript
+* MongoDB
+* Mongoose
+* Express
+* Passport
+* Node
 * Git
-* Deplayed with Heroku
+* Google oauth
+* Deployed with Heroku
 
 ## 🚧  Icebox Features 
 * Search for tablature by name
-* Different tablature sizes
+* Different editor sizes
 * A more robust editor
-* Menu on edit pages to show editor controls
 * Bookmarking public tablatures

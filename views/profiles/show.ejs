@@ -11,6 +11,11 @@
                     <%- include('../partials/tab-card.ejs', {tab, showOwner: false}) %>
                 </div>
             <% }) %>
+            <% if (tabs.length === 0) { %>
+                <div class="flex center md">
+                    <p class="thin-font md">No riffs yet</p>
+                </div>
+            <% } %>
         </div>
     </div>
 </main>

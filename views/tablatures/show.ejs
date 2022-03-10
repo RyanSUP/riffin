@@ -4,11 +4,11 @@
 <main>
     <% if(userAuth === 'user') { %>
         <div class="flex-col center lg">
-            <%- include('../partials/tab-card'), {
+            <%- include('../partials/tab-card', {
                 tab, 
                 showOwner: true, 
                 showBookmark: true,
-                } %>
+                }) %>
         </div>
     <% } else {%>
         <div class="flex-col center lg">

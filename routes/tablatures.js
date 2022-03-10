@@ -18,10 +18,10 @@ router.post('/', isLoggedIn, tablaturesCtrl.create)
 router.post('/:id', isLoggedIn, tablaturesCtrl.update)
 
 // GET - localhost:3000/tablatures/:id/edit
-router.get('/:id', isLoggedIn, tablaturesCtrl.edit)
+router.get('/:id/edit', isLoggedIn, tablaturesCtrl.edit)
 
 // Get - localhost:3000/tablatures/:id
-router.get('/:id', tablaturesCtrl.show)
+router.get('/:id', isLoggedIn, tablaturesCtrl.show)
 
 // DELETE - localhost:3000/tablatures/id
 router.delete('/:id', isLoggedIn, tablaturesCtrl.delete)

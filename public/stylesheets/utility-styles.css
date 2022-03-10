@@ -108,3 +108,11 @@
 .frost-0 {
     color: var(--frost0-color);
 }
+
+.circle {
+    border-radius: 50%;
+}
+
+.img-sm {
+    width: 35px;
+}

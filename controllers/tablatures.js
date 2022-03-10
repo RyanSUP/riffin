@@ -18,7 +18,7 @@ const index = (req, res) => {
 }
 
 const newTablature = (req, res) => {
-    Collection.find({})
+    Collection.find({ owner: req.user.profile._id })
     .then(collections => {
         res.render('tablatures/new', {
             title: 'New',
@@ -78,7 +78,7 @@ const show = (req, res) => {
             if(req.user === undefined) {
                 userAuth = 'guest'
             } else if(tab.owner.equals(req.user.profile._id)) {
-                res.redirect(`/tablatures/<%= tab._id/edit %>`)
+                res.redirect(`/tablatures/${tab.id}/edit`)
             } else {
                 userAuth = 'user'
             }
