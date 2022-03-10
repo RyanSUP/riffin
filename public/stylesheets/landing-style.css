@@ -1,0 +1,17 @@
+.logo {
+    font-size: 6rem;
+    font-family: var(--logo-font-family);
+}
+
+.tagline {
+    font-size: 3rem;
+    color: var(--nord4-color);
+  }
+  
+  .sub-tag {
+    color: var(--nord4-color);
+  }
+  
+  .demo {
+    margin-top: 15px;
+  }

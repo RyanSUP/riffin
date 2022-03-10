@@ -65,19 +65,7 @@ nav a {
   flex-grow: 1;
 }
 
-.tagline {
-  font-family: 'Praise', cursive;
-  font-size: 6rem;
-  color: var(--nord6-color);
-}
 
-.sub-tag {
-  color: var(--nord3-color);
-}
-
-.demo {
-  margin-top: 15px;
-}
 
 p {
   color: var(--nord5-color);

@@ -100,3 +100,7 @@
 .color-3 {
     color: var(--nord2-color);
 }
+
+.frost-0 {
+    color: var(--frost0-color);
+}

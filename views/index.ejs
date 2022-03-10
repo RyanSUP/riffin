@@ -1,13 +1,25 @@
 <%- include('./partials/html-head') %>
 <link href="https://fonts.googleapis.com/css2?family=Praise&display=swap" rel="stylesheet">
-<%- include('./partials/nav') %>
+<link rel="stylesheet" href="/stylesheets/landing-style.css">
+<% if (!user) { %>
+    <link rel="stylesheet" href="/stylesheets/siwg.css">
+  <% } %>
+</head>
+<body>
 
-<main>
-    <div class="flex-col center">
-        <h1 class="tagline">Let the music flow</h1>
-        <h2 class="sub-tag">A no-nonsense tablature sketchpad</h2>
-        <img class="demo" src="/demo/demo.gif" alt="Riff demo">
-    </div>
-</main>
+<div class="flex-col center">
+    <h1 class="logo frost-0">Riff</h1>
+    <h3 class="tagline thin-font margin-sm">Let the music flow</h1>
+    <img class="demo" src="/demo/demo.gif" alt="Riff demo">
+    
+    <h3 class="sub-tag sm thin-font ">A no-nonsense tablature sketchpad</h2>
+        <a href="/auth/google" class="siwg-link">
+            <button type="submit" class="siwg">
+              <img id="siwg-image" alt="Sign in with Google" />
+            </button>
+          </a>
+        
+</div>
+
 
 <%- include('./partials/footer') %>
