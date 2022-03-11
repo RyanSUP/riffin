@@ -1,7 +1,7 @@
 
 ![Logo](https://i.imgur.com/tmP7kl8.png)  
-A no-nonsense tablature sketchpad  
 ![Gif](https://i.imgur.com/keSI4KI.gif)
+A tablature sketchpad
 
 
 
@@ -46,7 +46,11 @@ This project showcases MEN stack and RESTful routing technologies
 * Deployed with Heroku
 
 ## 🚧  Icebox Features 
-* Search for tablature by name
-* Different editor sizes
+* 
+* Follow users
+* Tablature tags
+* Editor info page
 * A more robust editor
+* Different editor sizes
 * Bookmarking public tablatures
+* Search for tablature by name / tags

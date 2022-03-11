@@ -5,16 +5,17 @@ const show = (req, res) => {
     Profile.findById(req.params.id)
     .then(profile => {
         Tablature.find({owner: profile.id, public: true})
-        .then(tabs => {
+        .populate('owner')
+        .exec((error, tabs) => {
             res.render('profiles/show', {
                 title: `${profile.name}'s riffs`,
                 tabs,
                 profile,
             })
-        })
-        .catch(error => {
-            console.log(error)
-            res.redirect('/tablatures')
+            if(error) {
+                console.log(error)
+                res.redirect('/tablatures')
+            }
         })
     })
 }

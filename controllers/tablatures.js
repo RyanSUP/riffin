@@ -71,7 +71,8 @@ const createTablature = (req, res) => {
 const show = (req, res) => {
 
     Tablature.findById(req.params.id)
-    .then(tab => {
+    .populate('owner')
+    .exec( (error,tab) => {
         Collection.find()
         .then(collections => {
             let userAuth
@@ -89,12 +90,12 @@ const show = (req, res) => {
                 userAuth,
             })
         })
-    })
-    .catch(error => {
-        console.log(error)
-        isSelf ? 
-        res.redirect(`/profile/${req.user.profile._id}`) : 
-        res.redirect('/tablatures/trending')
+        if(error) {
+            console.log(error)
+            isSelf ? 
+            res.redirect(`/profile/${req.user.profile._id}`) : 
+            res.redirect('/tablatures/trending')
+        }
     })
 }
 
