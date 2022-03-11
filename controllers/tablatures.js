@@ -7,7 +7,6 @@ import * as tabScripts from '../public/scripts/tab-scripts.js'
 
 const index = (req, res) => {
     Tablature.find({public: true})
-    // ! Ok - after much frustration and googling I realized to populate I need to use the property name, not the ref name...
     .populate('owner')
     .exec((error, tabs) => {
         res.render('tablatures/index', {
@@ -34,7 +33,7 @@ const createTablature = (req, res) => {
     if(req.body.name === "") { req.body.name = undefined }
     // Force boolean value
     req.body.public = !!req.body.public
-    // Handle tab inputs
+    // Massage tab inputs
     req.body.rawInput = tabScripts.arrayifyRawInput(req.body.rawInput)
     req.body.notesOnStrings = tabScripts.fillNotesOnStrings(req.body.rawInput)
     req.body.tabGrid = tabScripts.arrayifyRawInput(req.body.tabGrid)
@@ -63,7 +62,6 @@ const createTablature = (req, res) => {
     })
     .catch(error => {
         console.log(error)
-        // send back the stored tab so the user doesnt lose their lick if the save fails
         res.redirect('/tablatures/new')
     })
 }
@@ -100,13 +98,11 @@ const show = (req, res) => {
 }
 
 const update = (req, res) => {
-    // Need to update collection
-    // If collection value = "", remove collection
     Tablature.findById(req.params.id)
     .then(tab => {
         if(tab.owner.equals(req.user.profile._id)) {
             if(req.body.folder === 'null' || req.body.folder === 'current') {
-                // do nothing
+                // do nothing - need to do this check or it will break 2nd elif
             } else if(req.body.folder === 'remove') {
                 // tab IS in a collection
                 // tab wants NO collection
@@ -119,7 +115,7 @@ const update = (req, res) => {
                 tab.folder = null
             } else if(req.body.folder !== tab.folder) {
                 // a new collection was selected
-                // therefore collection is changing.
+                // collection is changing.
                 // if tab is currently in a collection
                 if(tab.folder !== null) {
                     // remove tab from the collection
@@ -137,14 +133,14 @@ const update = (req, res) => {
                 tab.folder = req.body.folder
             }
 
-            // Remove tab from collection
-
             tab.name = req.body.name
             tab.public = !!req.body.public
             tab.rawInput = tabScripts.arrayifyRawInput(req.body.rawInput)
+            // massage tab inputs - need to do this or it will not save in the correct array pattern
             req.body.rawInput = tabScripts.arrayifyRawInput(req.body.rawInput)
             req.body.notesOnStrings = tabScripts.fillNotesOnStrings(req.body.rawInput)
             req.body.tabGrid = tabScripts.arrayifyRawInput(req.body.tabGrid)
+            // Give the tab the new inputs
             tab.rawInput = req.body.rawInput
             tab.notesOnStrings = req.body.notesOnStrings
             tab.tabGrid = req.body.tabGrid
@@ -162,8 +158,6 @@ const update = (req, res) => {
     })
 }
 
-// ! At some point I'll need to make sure tabs are removed from collections too'
-// ! and profile!
 const deleteTab = (req, res) => {
     Tablature.findById(req.params.id)
     .then(tab => {
@@ -203,5 +197,5 @@ export {
     newTablature as new,
     update,
     deleteTab as delete,
-    edit
+    edit,
 }

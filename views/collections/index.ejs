@@ -28,15 +28,11 @@
                 <%- include('../partials/tab-card.ejs', {tab, showOwner: false}) %> 
             <% }) %>
         </div>
-        <% if (collection.tabs.length !== 0) { %>
-            <div class="flex center sm margin-sm thin-font">
-                <a href="/collections/<%= collection._id %>">view collection</a>
-            </div>
-        <% } else {%>
+        <% if (collection.tabs.length === 0) { %>
             <div class="flex center md">
                 <p class="thin-font md">empty</p>
             </div>
-        <% } %> 
+        <% } %>
     <% }) %>
 </main>
 

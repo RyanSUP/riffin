@@ -5,9 +5,11 @@
 
 <!-- This is trending -->
 <main>
+    <div class="flex center margin-xlg">
+        <h1>Trending Riffs</h1>
+    </div>
     <div class="flex wrap space-around">
-        <% tabs.forEach(tab => { %>
-            <!-- Gallery element will need to be a grid -->
+        <% tabs.reverse().forEach(tab => { %>
             <div class="flex-col md">
                 <%- include('../partials/tab-card.ejs', {tab, showOwner: true}) %>
             </div>

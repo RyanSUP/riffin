@@ -1,6 +1,6 @@
 
 ![Logo](https://i.imgur.com/tmP7kl8.png)  
-![Gif](https://i.imgur.com/keSI4KI.gif)
+![Gif](https://i.imgur.com/keSI4KI.gif)  
 A tablature sketchpad
 
 
@@ -16,7 +16,16 @@ Duplicate chords with **D**
 
 *Now you're ready to rock.*  
     
-(editor currently does not support character inputs, only numbers, space, backspace, and 'D')
+**Supported inputs**  
+- p
+- h 
+- D (duplicate)
+- Arrow keys
+- Click
+- Backspace
+- /
+- SPACE
+  
 
 ---
 
@@ -30,7 +39,8 @@ Riffin was born.
 ## 🎥 Art Credits
 ### [Steve Shoger](https://dribbble.com/steveschoger)
 * [Repeatable SVG background](https://heropatterns.com/)
-### [fontawesome](https://fontawesome.com/)  
+### [fontawesome](https://fontawesome.com/)
+### [Nord color pallete](https://www.nordtheme.com/)  
 ## 👨🏻‍🔬 Technologies use  
 This project showcases MEN stack and RESTful routing technologies
 * HTML
@@ -46,11 +56,13 @@ This project showcases MEN stack and RESTful routing technologies
 * Deployed with Heroku
 
 ## 🚧  Icebox Features 
-* 
 * Follow users
 * Tablature tags
+* Saved indicator
 * Editor info page
 * A more robust editor
 * Different editor sizes
+* Ability to type in tunings
 * Bookmarking public tablatures
 * Search for tablature by name / tags
+* Style all tabs in all pages to match the editor

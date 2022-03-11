@@ -1,3 +1,4 @@
+// This is a giant mess right now
 let inputArea = document.querySelector('#rawInput')
 let shadow = document.querySelector('#tabGrid')
 let editing = document.querySelector('edit')
@@ -9,7 +10,7 @@ let secondToLast = [38, 79, 120, 161, 202, 243]
 
 const fillInput = (area, c) => {
   for(let i = 0; i < 6; i++) {
-      area.value += "|"
+      area.value += c
     for(let j = 0; j < 39; j++) {
       area.value += c
     }
@@ -108,6 +109,70 @@ inputArea.addEventListener('keydown', (evt) => {
     })
     inputArea.selectionStart = cursor + 2
     inputArea.selectionEnd = cursor + 2
+  } else if(evt.code === 'KeyP' || evt.code === 'KeyH') {
+    evt.preventDefault()
+    let cursorPos = inputArea.selectionStart
+    if(cursorPos === 40 || cursorPos === 81 || cursorPos === 122 || cursorPos === 163 || cursorPos === 204) {
+      cursorPos += 1
+    } else if ( cursorPos === 245) {
+      return
+    }
+    inputArea.value = replaceCharAt(inputArea.value, cursorPos, evt.code.slice(3,4).toLowerCase())
+    shadow.value = replaceCharAt(shadow.value, cursorPos, ' ')
+    inputArea.selectionStart = cursorPos + 1
+    inputArea.selectionEnd = cursorPos + 1
+
+  } else if(evt.code === 'Slash') {
+    evt.preventDefault()
+    let cursorPos = inputArea.selectionStart
+    if(cursorPos === 40 || cursorPos === 81 || cursorPos === 122 || cursorPos === 163 || cursorPos === 204) {
+      cursorPos += 1
+    } else if ( cursorPos === 245) {
+      return
+    }
+    inputArea.value = replaceCharAt(inputArea.value, cursorPos, '/')
+    shadow.value = replaceCharAt(shadow.value, cursorPos, ' ')
+    inputArea.selectionStart = cursorPos + 1
+    inputArea.selectionEnd = cursorPos + 1
+
+  } else if(evt.code === 'Space') {
+    evt.preventDefault()
+    let cursorPos = inputArea.selectionStart
+    if(cursorPos === 40 || cursorPos === 81 || cursorPos === 122 || cursorPos === 163 || cursorPos === 204) {
+      cursorPos += 1
+    } else if ( cursorPos === 245) {
+      return
+    }
+    inputArea.value = replaceCharAt(inputArea.value, cursorPos, ' ')
+    inputArea.selectionStart = cursorPos + 1
+    inputArea.selectionEnd = cursorPos + 1
+
+  } else if(evt.code === 'Slash') {
+    evt.preventDefault()
+    let cursorPos = inputArea.selectionStart
+    if(cursorPos === 40 || cursorPos === 81 || cursorPos === 122 || cursorPos === 163 || cursorPos === 204) {
+      cursorPos += 1
+    } else if ( cursorPos === 245) {
+      return
+    }
+    inputArea.value = replaceCharAt(inputArea.value, cursorPos, '/')
+    shadow.value = replaceCharAt(shadow.value, cursorPos, ' ')
+    inputArea.selectionStart = cursorPos + 1
+    inputArea.selectionEnd = cursorPos + 1
+
+  } else if(evt.code === 'KeyX') {
+    evt.preventDefault()
+    let cursorPos = inputArea.selectionStart
+    if(cursorPos === 40 || cursorPos === 81 || cursorPos === 122 || cursorPos === 163 || cursorPos === 204) {
+      cursorPos += 1
+    } else if ( cursorPos === 245) {
+      return
+    }
+    inputArea.value = replaceCharAt(inputArea.value, cursorPos, 'x')
+    shadow.value = replaceCharAt(shadow.value, cursorPos, ' ')
+    inputArea.selectionStart = cursorPos + 1
+    inputArea.selectionEnd = cursorPos + 1
+
   } else {
       evt.preventDefault()
   }

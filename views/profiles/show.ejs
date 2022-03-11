@@ -4,9 +4,11 @@
 
 <main>
     <div class="margin-sm">
-        <div class="flex center margin-y-lg">
-            <h1 class="thin-font"><%= profile.name %>'s public riffs</h1>
-        </div>
+        <% if (!user.profile._id.equals(profile.id)) { %>
+            <div class="flex center margin-y-lg">
+                <h1 class="thin-font"><%= profile.name %>'s public riffs</h1>
+            </div>
+        <% } %>
         <div class="flex wrap space-around">
             <% tabs.forEach(tab => { %>
                 <div class="flex-col md">
